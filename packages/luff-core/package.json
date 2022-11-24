@@ -1,0 +1,29 @@
+{
+  "name": "luff-core",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "play": "histoire dev",
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.41",
+    "@luff-ui/icon": "workspace:*",
+    "defu": "^6.1.1",
+    "pinceau": "latest"
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "latest",
+    "@vitejs/plugin-vue": "latest",
+    "histoire": "latest",
+    "typescript": "^4.9.3",
+    "unplugin-vue-define-options": "^0.11.2",
+    "vite": "3.1.7",
+    "vite-plugin-inspect": "^0.7.9",
+    "vue-tsc": "^0.39.5"
+  }
+}
+
