@@ -1,12 +1,12 @@
 /// <reference types="histoire" />
 
-import { defineConfig } from "vite";
-import { resolve } from "path";
-import vue from "@vitejs/plugin-vue";
-import DefineOptions from "unplugin-vue-define-options/vite";
-import AutoImport from "unplugin-auto-import/vite";
-import Pinceau from "pinceau/vite";
-import Inspect from 'vite-plugin-inspect'
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import Dts from 'vite-plugin-dts'
+import DefineOptions from 'unplugin-vue-define-options/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import Pinceau from 'pinceau/vite'
 
 export default defineConfig({
   logLevel: 'info',
@@ -14,7 +14,6 @@ export default defineConfig({
     Pinceau({
       configOrPaths: [resolve(__dirname, 'theme')],
       configFileName: 'tokens.config',
-      debug: true,
       colorSchemeMode: 'class'
     }),
     vue(),
@@ -23,9 +22,6 @@ export default defineConfig({
     AutoImport({
       dts: true,
       imports: ['vue']
-    }),
-    Inspect({
-      build: true
     })
   ],
   resolve: {
@@ -39,7 +35,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'index.ts'),
-      name: 'LuffUI'
+      name: 'PieceUI'
     },
     commonjsOptions: {
       transformMixedEsModules: true
@@ -59,4 +55,3 @@ export default defineConfig({
     setupFile: 'histoire.setup.ts'
   }
 })
-

@@ -13,8 +13,8 @@
     }
   },
   "scripts": {
-    "generate": "esno scripts/generate.ts && pnpm build",
-    "build": " esno scripts/build.ts && pnpm build:types",
+    "generate": "esno scripts/generate.ts",
+    "build": " pnpm generate && esno scripts/build.ts && pnpm build:types",
     "build:types": "vue-tsc --declaration --emitDeclarationOnly"
   },
   "exports": {

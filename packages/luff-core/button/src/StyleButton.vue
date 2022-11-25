@@ -1,13 +1,13 @@
 <template>
-  <component is="button" class="lu-btn">
+  <button class="lu-btn">
     <slot />
-  </component>
+  </button>
 </template>
 
 <script lang="ts" setup>
 defineOptions({
-  name: "LuStyleButton",
-});
+  name: 'LuStyleButton'
+})
 </script>
 
 <style lang="ts">
