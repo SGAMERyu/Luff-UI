@@ -1,13 +1,17 @@
 <template>
   <button class="lu-btn">
-    <slot />
+    <span>{{ variant }}</span>
   </button>
 </template>
 
 <script lang="ts" setup>
+import type { ButtonProps } from './button'
+
 defineOptions({
   name: 'LuStyleButton'
 })
+
+defineProps<ButtonProps>()
 </script>
 
 <style lang="ts">

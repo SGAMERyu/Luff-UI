@@ -12,15 +12,14 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["unplugin-vue-define-options/macros-global" /* ... */],
+    "types": ["unplugin-vue-macros/macros-global" /* ... */],
     "paths": {
       "~/*": ["./*"]
     }
   },
-  "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue"],
+  "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue", "**/src/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "vueCompilerOptions": {
     "plugins": ["./node_modules/pinceau/volar.cjs"]
   }
 }
-

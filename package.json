@@ -16,7 +16,7 @@
       ]
     },
     "build:component": {
-      "command": "pnpm -C packages/luff-core run build",
+      "command": "pnpm -C packages/luff-core run build --watch",
       "files": [
         "packages/luff-core/**/**/*.vue",
         "packages/luff-core/**/**/*.ts",
@@ -44,11 +44,11 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-unicorn": "^43.0.2",
-    "eslint-plugin-vue": "^9.7.0",
+    "eslint-plugin-vue": "^9.8.0",
     "esno": "^0.16.3",
     "fast-glob": "^3.2.12",
     "husky": "^8.0.2",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^13.0.4",
     "prettier": "latest",
     "rimraf": "^3.0.2",
     "scule": "^0.3.2",
