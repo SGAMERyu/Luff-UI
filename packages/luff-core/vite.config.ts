@@ -1,5 +1,3 @@
-/// <reference types="histoire" />
-
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -15,7 +13,7 @@ export default defineConfig({
       configOrPaths: [resolve(__dirname, 'theme')],
       configFileName: 'tokens.config',
       colorSchemeMode: 'class',
-      outputDir: 'dist/theme/',
+      outputDir: 'them-chalk/',
       debug: true
     }),
     // Dts(),
@@ -40,7 +38,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'index.ts'),
-      name: 'PieceUI'
+      name: 'LuffUI',
+      fileName: 'LuffUI'
     },
     commonjsOptions: {
       transformMixedEsModules: true
@@ -55,8 +54,5 @@ export default defineConfig({
         }
       }
     }
-  },
-  histoire: {
-    setupFile: 'histoire.setup.ts'
   }
 })

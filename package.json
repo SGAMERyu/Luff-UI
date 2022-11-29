@@ -10,13 +10,13 @@
   },
   "wireit": {
     "play": {
-      "command": "pnpm -C packages/luff-core run play",
+      "command": "pnpm -C playground run play",
       "dependencies": [
         "build:component"
       ]
     },
     "build:component": {
-      "command": "pnpm -C packages/luff-core run build --watch",
+      "command": "pnpm -C packages/luff-core run build",
       "files": [
         "packages/luff-core/**/**/*.vue",
         "packages/luff-core/**/**/*.ts",

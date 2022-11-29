@@ -2,3 +2,4 @@ node_modules
 dist
 .wireit
 .vite-inspect
+theme-chalk

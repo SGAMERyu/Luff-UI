@@ -1,6 +1,6 @@
 <template>
   <button class="lu-btn">
-    <span>{{ variant }}</span>
+    <slot />
   </button>
 </template>
 
@@ -18,7 +18,8 @@ defineProps<ButtonProps>()
 css({
   '.lu-btn': {
     display: 'flex',
-    color: '{colors.primary.100}'
+    color: '{colors.primary.100}',
+    background: (props) => `{colors.${props.color}.400}`
   }
 })
 </style>

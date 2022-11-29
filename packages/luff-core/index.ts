@@ -1,9 +1,11 @@
-import { LuffButton } from "~/button";
-import { createInstaller } from "./utils";
-import type { Plugin } from "vue";
+import { LuffButton } from '~/button'
+import { createInstaller } from './utils'
+import type { Plugin } from 'vue'
 
-const components: Plugin[] = [LuffButton];
+import 'pinceau.css'
 
-const installPieceUi = createInstaller(components);
+const components: Plugin[] = [LuffButton]
 
-export default installPieceUi;
+const installPieceUi = createInstaller(components)
+
+export default installPieceUi
