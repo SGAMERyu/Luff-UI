@@ -13,7 +13,6 @@ export default defineConfig({
       configOrPaths: [resolve(__dirname, 'theme')],
       configFileName: 'tokens.config',
       colorSchemeMode: 'class',
-      outputDir: 'them-chalk/',
       debug: true
     }),
     // Dts(),

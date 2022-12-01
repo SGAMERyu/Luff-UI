@@ -1,8 +1,12 @@
+import { buttonTokens } from './tokens/button'
 import { generateThemeToSize, palette } from '../utils'
 
 const defaultTokens = {
   fontSizes: {
     ...generateThemeToSize([12, 14, 16, 20, 24])
+  },
+  size: {
+    ...buttonTokens.size
   }
 }
 
