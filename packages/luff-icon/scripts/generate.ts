@@ -21,17 +21,21 @@ async function getSvgFiles() {
     absolute: true,
     caseSensitiveMatch: false,
   });
+  const svgSet = new Set()
   svgPaths.forEach(async (path) => {
-    const svgContent = await readFile(path, "utf-8");
+    const svgContent = await readFile(path, "utf-8")
     const svgName = getSvgName(path);
-    const vueComponent = transformSvgToVueTemplate(svgName, svgContent);
-    svgFileList.push({ svgContent: vueComponent, svgName });
+    if (!svgSet.has(svgName.toLocaleLowerCase())) {
+      svgSet.add(svgName.toLocaleLowerCase())
+      const vueComponent = transformSvgToVueTemplate(svgName, svgContent);
+      svgFileList.push({ svgContent: vueComponent, svgName });
+    }
   });
   return svgFileList;
 }
 
 function getSvgName(svgPath: string) {
-  return "Pi" + pascalCase(parse(svgPath).name);
+  return "Lu" + pascalCase(parse(svgPath).name);
 }
 
 function transformSvgToVueTemplate(componentName: string, content: string) {

@@ -3,3 +3,4 @@ dist
 .wireit
 .vite-inspect
 theme-chalk
+packages/luff-icon/src/components

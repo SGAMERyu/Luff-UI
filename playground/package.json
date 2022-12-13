@@ -10,16 +10,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@histoire/plugin-vue": "^0.11.7",
+    "@histoire/plugin-vue": "^0.11.9",
     "@vitejs/plugin-vue": "latest",
-    "histoire": "^0.11.7",
+    "histoire": "^0.11.9",
     "unplugin-auto-import": "^0.11.5",
-    "vite": "^3.2.4"
+    "vite": "^3.2.5"
   },
   "dependencies": {
-    "@luff-ui/core": "workspace:*",
-    "@luff-ui/icon": "workspace:*",
-    "pinceau": "^0.7.4",
+    "@luff-ui/core": "workspace:0.0.0",
+    "@luff-ui/icon": "workspace:1.0.0",
+    "pinceau": "latest",
     "vue": "^3.2.45"
   }
 }
