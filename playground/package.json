@@ -11,15 +11,15 @@
   "license": "ISC",
   "devDependencies": {
     "@histoire/plugin-vue": "^0.11.9",
-    "@vitejs/plugin-vue": "latest",
+    "@vitejs/plugin-vue": "^4.0.0",
     "histoire": "^0.11.9",
-    "unplugin-auto-import": "^0.11.5",
-    "vite": "^3.2.5"
+    "unplugin-auto-import": "^0.12.1",
+    "vite": "^4.0.1"
   },
   "dependencies": {
     "@luff-ui/core": "workspace:0.0.0",
     "@luff-ui/icon": "workspace:1.0.0",
-    "pinceau": "latest",
+    "pinceau": "^0.8.9",
     "vue": "^3.2.45"
   }
 }
