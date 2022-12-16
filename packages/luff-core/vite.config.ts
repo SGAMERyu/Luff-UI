@@ -1,3 +1,5 @@
+/// <reference types="histoire" />
+
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -53,5 +55,8 @@ export default defineConfig({
         }
       }
     }
+  },
+  histoire: {
+    setupFile: 'histoire.setup.ts'
   }
 })

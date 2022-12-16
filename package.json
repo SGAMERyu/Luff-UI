@@ -5,22 +5,19 @@
     "commit": "git cz",
     "build:icon": "wireit",
     "build:component": "wireit",
-    "play": "wireit",
+    "play": "pnpm -C playground run dev",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache"
   },
   "wireit": {
-    "play": {
-      "command": "pnpm -C playground run play",
-      "dependencies": [
-        "build:component"
-      ]
-    },
     "build:component": {
       "command": "pnpm -C packages/luff-core run build",
       "files": [
         "packages/luff-core/**/**/*.vue",
         "packages/luff-core/**/**/*.ts",
         "packages/luff-core/**/*.ts"
+      ],
+      "dependencies": [
+        "build:icon"
       ]
     },
     "build:icon": {

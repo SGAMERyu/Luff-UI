@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonProps } from './button'
+import type { ButtonProps } from './button.type'
 
 defineOptions({
   name: 'LuStyleButton'

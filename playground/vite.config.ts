@@ -1,25 +1,13 @@
-/// <reference types="histoire" />
-
-import { resolve } from 'path'
-import vue from '@vitejs/plugin-vue'
+import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Pinceau from 'pinceau/vite'
+import vue from '@vitejs/plugin-vue'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    Pinceau({
-      configOrPaths: [resolve(__dirname, 'src')],
-      configFileName: 'tokens.config',
-      colorSchemeMode: 'class',
-      debug: true
-    }),
-    vue(),
-    AutoImport({
-      imports: ['vue']
-    })
-  ],
-  histoire: {
-    setupFile: 'histoire.setup.ts'
-  }
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
 })
