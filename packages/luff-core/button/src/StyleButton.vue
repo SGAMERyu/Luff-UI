@@ -5,21 +5,35 @@
 </template>
 
 <script lang="ts" setup>
-import type { ButtonProps } from './button.type'
+import { buttonProps } from './button.type'
+import { computedBtnColor, computedBtnBorder } from './button.style'
 
 defineOptions({
   name: 'LuStyleButton'
 })
 
-defineProps<ButtonProps>()
+defineProps({ ...buttonProps, ...variants })
 </script>
 
 <style lang="ts">
 css({
+  variants: {
+    variant: {
+      filled: {
+        '&': {
+          color: '{color.white}',
+          backgroundColor: (props) => computedBtnColor(props)
+        }
+      },
+      options: {
+        default: 'filled'
+      }
+    }
+  },
   '.lu-btn': {
     display: 'flex',
-    color: '{colors.primary.100}',
-    background: (props) => `{colors.${props.color}.400}`
-  }
+    outline: 'none',
+    border: 'none',
+  },
 })
 </style>

@@ -2,7 +2,7 @@ import { buttonTokens } from './tokens/button'
 import { generateThemeToSize, palette } from '../utils'
 
 const defaultTokens = {
-  fontSizes: {
+  fontSize: {
     ...generateThemeToSize([12, 14, 16, 20, 24])
   },
   size: {
@@ -12,7 +12,7 @@ const defaultTokens = {
 
 const defaultUtils = {}
 
-const defaultColors = {
+const defaultColor = {
   // misc
   white: '#ffffff',
   black: '#000000',
@@ -26,6 +26,6 @@ const defaultColors = {
 
 export default {
   ...defaultTokens,
-  colors: defaultColors,
+  color: defaultColor,
   utils: defaultUtils
 }

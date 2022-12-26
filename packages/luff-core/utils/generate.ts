@@ -22,8 +22,8 @@ export function palette(
 
   suffixes.forEach((range) => {
     Reflect.set(colorRange, range, {
-      initial: `{colors.${color}.${range}}`,
-      dark: `{colors.${color}.${range}}`
+      initial: `{color.${color}.${range}}`,
+      dark: `{color.${color}.${range}}`
     })
   })
 

@@ -17,9 +17,8 @@
       "~/*": ["./*"]
     }
   },
-  "include": ["**/*.ts", "**/*.d.ts", "**/*.tsx", "**/*.vue", "**/src/*.vue", "../../playground/components/button.story.vue.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "vueCompilerOptions": {
-    "plugins": ["./node_modules/pinceau/volar.cjs"]
+    "plugins": ["pinceau/volar"]
   }
 }

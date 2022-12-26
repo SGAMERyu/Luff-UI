@@ -1,5 +1,3 @@
-/// <reference types="histoire" />
-
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -7,6 +5,7 @@ import Dts from 'vite-plugin-dts'
 import AutoImport from 'unplugin-auto-import/vite'
 import Pinceau from 'pinceau/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
+import Inspect from 'vite-plugin-inspect'
 
 export default defineConfig({
   logLevel: 'info',
@@ -25,7 +24,10 @@ export default defineConfig({
     }),
     AutoImport({
       dts: true,
-      imports: ['vue']
+      imports: ['vue', '@vueuse/core']
+    }),
+    Inspect({
+      build: true
     })
   ],
   resolve: {
@@ -55,8 +57,5 @@ export default defineConfig({
         }
       }
     }
-  },
-  histoire: {
-    setupFile: 'histoire.setup.ts'
   }
 })
