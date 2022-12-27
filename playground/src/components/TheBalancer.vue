@@ -35,7 +35,7 @@ const demoStyle = computed(() => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .demo {
   display: flex;
   gap: 20px;

@@ -1,5 +1,5 @@
 <template>
-  <TheBalancer />
+  <TheButton />
 </template>
 
 <style scoped></style>

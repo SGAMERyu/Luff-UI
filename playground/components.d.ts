@@ -10,5 +10,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheBalancer: typeof import('./src/components/TheBalancer.vue')['default']
+    TheButton: typeof import('./src/components/TheButton.vue')['default']
   }
 }

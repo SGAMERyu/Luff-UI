@@ -1,4 +1,4 @@
-import { buttonTokens } from './tokens/button'
+import { buttonTokens, buttonUtils } from './tokens/button'
 import { generateThemeToSize, palette } from '../utils'
 
 const defaultTokens = {
@@ -10,7 +10,9 @@ const defaultTokens = {
   }
 }
 
-const defaultUtils = {}
+const defaultUtils = {
+  ...buttonUtils
+}
 
 const defaultColor = {
   // misc

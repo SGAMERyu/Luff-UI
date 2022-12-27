@@ -1,22 +1,20 @@
-import { ButtonColor } from '~/button'
 import { generateThemeToSize } from '../../utils'
-
-const buttonColors: (ButtonColor | string)[] = ['primary', 'danger', 'success', 'warning']
 
 export const buttonTokens = {
   size: {
     btn: {
-      ...generateThemeToSize([24, 28, 32, 36, 40])
+      ...generateThemeToSize([24, 32, 40, 48, 56])
     },
     btnPadding: {
-      ...generateThemeToSize([10, 12, 16, 20, 24])
+      ...generateThemeToSize([6, 14, 24, 32, 40])
     }
   }
 }
 
 export const buttonUtils = {
-  bf: (value: string) => ({
-    background: buttonColors.includes(value) ? `{color.${value}.400}` : value,
-    color: '{color.white}'
+  bSize: (value: string) => ({
+    height: `{size.btn.${value}}`,
+    paddingLeft: `{size.btnPadding.${value}}`,
+    paddingRight: `{size.btnPadding.${value}}`
   })
 }

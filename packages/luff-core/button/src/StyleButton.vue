@@ -23,10 +23,70 @@ css({
         '&': {
           color: '{color.white}',
           backgroundColor: (props) => computedBtnColor(props)
+        },
+        '&:hover': {
+          backgroundColor: (props) => computedBtnColor(props, 500)
+        }
+      },
+      outline: {
+        '&': {
+          color: (props) => computedBtnColor(props),
+          border: (props) => computedBtnBorder(props)
+        },
+        '&:hover': {
+          backgroundColor: (props) => computedBtnColor(props, 300)
+        }
+      },
+      light: {
+        '&': {
+          color: (props) => computedBtnColor(props, 500),
+          backgroundColor: (props) => computedBtnColor(props),
+        },
+        '&:hover': {
+          backgroundColor: (props) => computedBtnColor(props, 300),
+        }
+      },
+      subtle: {
+        '&': {
+          color: (props) => computedBtnColor(props),
+          backgroundColor: 'transparent'
+        },
+        '&:hover': {
+          backgroundColor: (props) => computedBtnColor(props, 300)
         }
       },
       options: {
         default: 'filled'
+      }
+    },
+    size: {
+      xs: {
+        '&': {
+          bSize: 'xs'
+        }
+      },
+      sm: {
+        '&': {
+          bSize: 'sm'
+        }
+      },
+      md: {
+        '&': {
+          bSize: 'md'
+        }
+      },
+      lg: {
+        '&': {
+          bSize: 'lg'
+        }
+      },
+      xl: {
+        '&': {
+          bSize: 'xl'
+        }
+      }
+      options: {
+        default: 'md'
       }
     }
   },
