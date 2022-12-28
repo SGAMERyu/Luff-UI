@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { buttonProps } from './button.type'
-import { computedBtnColor, computedBtnBorder } from './button.style'
+import { variantTextColor, variantBorderColor } from '~/utils'
 
 defineOptions({
   name: 'LuStyleButton'
@@ -22,37 +22,37 @@ css({
       filled: {
         '&': {
           color: '{color.white}',
-          backgroundColor: (props) => computedBtnColor(props)
+          backgroundColor: (props) => variantTextColor(props)
         },
         '&:hover': {
-          backgroundColor: (props) => computedBtnColor(props, 500)
+          backgroundColor: (props) => variantTextColor(props, 500)
         }
       },
       outline: {
         '&': {
-          color: (props) => computedBtnColor(props),
-          border: (props) => computedBtnBorder(props)
+          color: (props) => variantTextColor(props),
+          border: (props) => variantBorderColor(props)
         },
         '&:hover': {
-          backgroundColor: (props) => computedBtnColor(props, 300)
+          backgroundColor: (props) => variantTextColor(props, 300)
         }
       },
       light: {
         '&': {
-          color: (props) => computedBtnColor(props, 500),
-          backgroundColor: (props) => computedBtnColor(props),
+          color: (props) => variantTextColor(props, 500),
+          backgroundColor: (props) => variantTextColor(props),
         },
         '&:hover': {
-          backgroundColor: (props) => computedBtnColor(props, 300),
+          backgroundColor: (props) => variantTextColor(props, 300),
         }
       },
       subtle: {
         '&': {
-          color: (props) => computedBtnColor(props),
+          color: (props) => variantTextColor(props),
           backgroundColor: 'transparent'
         },
         '&:hover': {
-          backgroundColor: (props) => computedBtnColor(props, 300)
+          backgroundColor: (props) => variantTextColor(props, 300)
         }
       },
       options: {
@@ -88,7 +88,7 @@ css({
       options: {
         default: 'md'
       }
-    }
+    },
   },
   '.lu-btn': {
     display: 'flex',

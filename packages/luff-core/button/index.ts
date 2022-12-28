@@ -1,4 +1,4 @@
-import { withInstall } from '../utils'
+import { withInstall } from '~/utils'
 import Button from './src/Button.vue'
 
 export const LuffButton = withInstall(Button)

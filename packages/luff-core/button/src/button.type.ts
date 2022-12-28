@@ -1,8 +1,7 @@
 import { ExtractPropTypes, PropType } from 'vue'
-import { Size } from '~/types'
+import { Size, Color, Variant } from '~/types'
 
-export type ButtonVariant = 'outline' | 'white' | 'light' | 'default' | 'filled' | 'subtle' | 'gradient'
-export type ButtonColor = 'primary' | 'danger' | 'success' | 'warning'
+export type ButtonVariant = Variant  | 'white' | 'default' | 'subtle' | 'gradient'
 
 export const buttonProps = {
   variant: {
@@ -10,12 +9,16 @@ export const buttonProps = {
     default: 'filled'
   },
   color: {
-    type: String as PropType<ButtonColor | string>,
+    type: String as PropType<Color | string>,
     default: 'primary'
   },
   size: {
     type: String as PropType<Size>,
     default: 'md'
+  },
+  compact: {
+    type: Boolean,
+    default: false
   }
 } as const
 
