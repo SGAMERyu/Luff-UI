@@ -56,8 +56,8 @@ css({
   '.lu-alert': {
     display: 'flex',
     gap: '8px',
-    alignItem: 'center',
-    padding: '{size.alertSpace}'
+    alignItems: 'center',
+    padding: '{size.alertSpace}',
     width: '100%',
     '&__content': {
       flex: 1

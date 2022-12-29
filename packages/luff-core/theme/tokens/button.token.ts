@@ -15,7 +15,7 @@ export const buttonTokens = {
 }
 
 export const buttonUtils = {
-  bSize: (value: string) => ({
+  btnSize: (value: string) => ({
     height: `{size.btn.${value}}`,
     paddingLeft: `{size.btnSpace.${value}}`,
     paddingRight: `{size.btnSpace.${value}}`

@@ -62,29 +62,29 @@ css({
     size: {
       xs: {
         '&': {
-          bSize: 'xs'
+          btnSize: 'xs'
         }
       },
       sm: {
         '&': {
-          bSize: 'sm'
+          btnSize: 'sm'
         }
       },
       md: {
         '&': {
-          bSize: 'md'
+          btnSize: 'md'
         }
       },
       lg: {
         '&': {
-          bSize: 'lg'
+          btnSize: 'lg'
         }
       },
       xl: {
         '&': {
-          bSize: 'xl'
+          btnSize: 'xl'
         }
-      }
+      },
       options: {
         default: 'md'
       }
