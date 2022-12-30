@@ -7,7 +7,7 @@ export interface VariantProps {
 
 const colors: Color[] = ['primary', 'danger', 'success', 'warning', 'info']
 
-export function variantTextColor(props: VariantProps, value = 400) {
+export function variantColor(props: VariantProps, value = 400) {
   if (colors.includes(props.color)) {
     return `{color.${props.color}.${value}}`
   }

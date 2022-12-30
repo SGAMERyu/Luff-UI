@@ -1,12 +1,12 @@
 <template>
-    <div class="lu-avatar">
-        <div class="lu-avatar__content" v-if="$slots.default">
-            <slot>
-                <LuffIcon><LuUserLine /></LuffIcon>
-            </slot>
-        </div>
-        <img v-else :src="src" :alt="alt" class="lu-avatar__image">
+  <div class="lu-avatar">
+    <div v-if="$slots.default" class="lu-avatar__content">
+      <slot>
+        <LuffIcon><LuUserLine /></LuffIcon>
+      </slot>
     </div>
+    <img v-else :src="src" :alt="alt" class="lu-avatar__image" />
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -27,7 +27,7 @@ css({
             justifyContent: 'center',
         },
         '&__image': {
-            widht: '100%',
+            width: '100%',
             height: '100%',
             objectFit: 'cover',
             display: 'block'
@@ -38,19 +38,19 @@ css({
             filled: {
                 '&': {
                     color: '{color.white}',
-                    backgroundColor: (props) => variantTextColor(props)
+                    backgroundColor: (props) => variantColor(props)
                 }
             },
             outline: {
                 '&': {
-                    color: (props) => variantTextColor(props),
+                    color: (props) => variantColor(props),
                     border: (props) => variantBorderColor(props)
                 }
             },
             light: {
                 '&': {
-                    color: (props) => variantTextColor(props, 500),
-                    backgroundColor: (props) => variantTextColor(props),
+                    color: (props) => variantColor(props, 500),
+                    backgroundColor: (props) => variantColor(props),
                 }
             }
         },

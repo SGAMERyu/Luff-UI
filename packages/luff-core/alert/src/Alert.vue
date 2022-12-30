@@ -20,7 +20,7 @@ import { alertProps } from './alert.type'
 import { LuffBalancer } from '~/balancer'
 import { LuffIcon } from '~/icon'
 import { LuCloseCircleFill } from '@luff-ui/icon'
-import { variantTextColor } from '~/utils'
+import { variantColor } from '~/utils'
 
 defineOptions({
   name: 'LuAlert'
@@ -36,19 +36,19 @@ css({
       filled: {
         '&': {
           color: '{color.white}',
-          backgroundColor: (props) => variantTextColor(props)
+          backgroundColor: (props) => variantColor(props)
         }
       },
       outline: {
         '&': {
-          color: (props) => variantTextColor(props),
+          color: (props) => variantColor(props),
           border: (props) => variantBorderColor(props)
         }
       },
       light: {
         '&': {
-          color: (props) => variantTextColor(props, 500),
-          backgroundColor: (props) => variantTextColor(props),
+          color: (props) => variantColor(props, 500),
+          backgroundColor: (props) => variantColor(props),
         }
       }
     }

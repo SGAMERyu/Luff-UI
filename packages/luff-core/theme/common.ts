@@ -1,4 +1,4 @@
-import { buttonTokens, buttonUtils, alertTokens, avatarTokens, avatarUtils } from './tokens/'
+import { buttonTokens, buttonUtils, alertTokens, avatarTokens, avatarUtils, badgeTokens, badgeUtils } from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
 
 const defaultTokens = {
@@ -8,13 +8,15 @@ const defaultTokens = {
   size: {
     ...buttonTokens.size,
     ...alertTokens.size,
-    ...avatarTokens.size
+    ...avatarTokens.size,
+    ...badgeTokens.size
   }
 }
 
 const defaultUtils = {
   ...buttonUtils,
   ...avatarUtils,
+  ...badgeUtils
 }
 
 const defaultColor = {

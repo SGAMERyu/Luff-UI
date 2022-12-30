@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { buttonProps } from './button.type'
-import { variantTextColor, variantBorderColor } from '~/utils'
+import { variantColor, variantBorderColor } from '~/utils'
 
 defineOptions({
   name: 'LuStyleButton'
@@ -22,37 +22,37 @@ css({
       filled: {
         '&': {
           color: '{color.white}',
-          backgroundColor: (props) => variantTextColor(props)
+          backgroundColor: (props) => variantColor(props)
         },
         '&:hover': {
-          backgroundColor: (props) => variantTextColor(props, 500)
+          backgroundColor: (props) => variantColor(props, 500)
         }
       },
       outline: {
         '&': {
-          color: (props) => variantTextColor(props),
+          color: (props) => variantColor(props),
           border: (props) => variantBorderColor(props)
         },
         '&:hover': {
-          backgroundColor: (props) => variantTextColor(props, 300)
+          backgroundColor: (props) => variantColor(props, 300)
         }
       },
       light: {
         '&': {
-          color: (props) => variantTextColor(props, 500),
-          backgroundColor: (props) => variantTextColor(props),
+          color: (props) => variantColor(props, 500),
+          backgroundColor: (props) => variantColor(props),
         },
         '&:hover': {
-          backgroundColor: (props) => variantTextColor(props, 300),
+          backgroundColor: (props) => variantColor(props, 300),
         }
       },
       subtle: {
         '&': {
-          color: (props) => variantTextColor(props),
+          color: (props) => variantColor(props),
           backgroundColor: 'transparent'
         },
         '&:hover': {
-          backgroundColor: (props) => variantTextColor(props, 300)
+          backgroundColor: (props) => variantColor(props, 300)
         }
       },
       options: {

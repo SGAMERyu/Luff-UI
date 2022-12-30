@@ -2,7 +2,7 @@
   "name": "@luff-ui/icon",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.cjs",
   "type": "module",
   "types": "index.d.ts",
   "typesVersions": {
