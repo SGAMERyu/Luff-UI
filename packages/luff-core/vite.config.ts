@@ -1,3 +1,5 @@
+/// <reference types="histoire" />
+
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -11,7 +13,7 @@ export default defineConfig({
   logLevel: 'info',
   plugins: [
     Pinceau({
-      configOrPaths: [resolve(__dirname, 'theme')],
+      configLayers: [resolve(__dirname, 'theme')],
       configFileName: 'tokens.config',
       colorSchemeMode: 'class',
       debug: true
@@ -26,9 +28,9 @@ export default defineConfig({
       dts: true,
       imports: ['vue', '@vueuse/core']
     }),
-    Inspect({
-      build: true
-    })
+    // Inspect({
+    //   build: true
+    // })
   ],
   resolve: {
     alias: [

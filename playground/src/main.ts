@@ -10,14 +10,6 @@ import './assets/main.css'
 const app = createApp(App)
 
 app.use(LuffUI)
-app.use(pinceau, {
-  theme: {
-    color: {
-      primary: {
-        400: 'red'
-      }
-    }
-  }
-})
+app.use(pinceau, { theme: {} })
 
 app.mount('#app')

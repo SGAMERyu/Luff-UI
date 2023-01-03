@@ -15,7 +15,7 @@ function getBuildOptions(format: Format): BuildOptions {
     platform: 'neutral',
     plugins: [
       esbuildVue({
-        isProduction: true
+        isProduction: false,
       })
     ],
     bundle: true,

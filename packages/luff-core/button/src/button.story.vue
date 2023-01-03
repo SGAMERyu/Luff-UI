@@ -1,11 +1,8 @@
 <template>
   <Story>
     <Variant>
-      <StyleButton variant="default">button</StyleButton>
+      <LuButton variant="default">button</LuButton>
     </Variant>
   </Story>
 </template>
 
-<script lang="ts" setup>
-import StyleButton from './StyleButton.vue'
-</script>
