@@ -1,6 +1,39 @@
 <template>
-  <div class="demo">
-    <LuButton color="primary">button</LuButton>
+  <h2>color</h2>
+  <div class="demo-block">
+    <LuButton color="primary">primary</LuButton>
+    <LuButton color="danger">danger</LuButton>
+    <LuButton color="success">success</LuButton>
+    <LuButton color="warning">warning</LuButton>
+    <LuButton color="info">info</LuButton>
+  </div>
+  <h2>variant</h2>
+  <div class="demo-block">
+    <LuButton color="primary">primary</LuButton>
+    <LuButton color="primary" variant="light">danger</LuButton>
+    <LuButton color="primary" variant="outline">success</LuButton>
+    <LuButton color="primary" variant="subtle">warning</LuButton>
+    <LuButton color="primary" variant="default">info</LuButton>
+    <LuButton color="primary" variant="white">info</LuButton>
+  </div>
+  <h2>Size</h2>
+  <div class="demo-block">
+    <LuButton color="primary" size="xs">Settings</LuButton>
+    <LuButton color="primary" size="sm">Settings</LuButton>
+    <LuButton color="primary" size="md">Settings</LuButton>
+    <LuButton color="primary" size="lg">Settings</LuButton>
+    <LuButton color="primary" size="xl">Settings</LuButton>
+  </div>
+  <h2>roundend</h2>
+  <div class="demo-block">
+    <LuButton color="primary" radius="xs">Settings</LuButton>
+    <LuButton color="primary" radius="sm">Settings</LuButton>
+    <LuButton color="primary" radius="md">Settings</LuButton>
+    <LuButton color="primary" radius="lg">Settings</LuButton>
+    <LuButton color="primary" radius="xl">Settings</LuButton>
+  </div>
+  <div class="demo-block">
+    <LuButton color="primary" loading>Settings</LuButton>
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 import { buttonTokens, buttonUtils, alertTokens, avatarTokens, avatarUtils, badgeTokens, badgeUtils } from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
+import { DefineConfigType } from 'pinceau/index'
 
 const defaultTokens = {
   fontSize: {
@@ -35,4 +36,4 @@ export default {
   ...defaultTokens,
   color: defaultColor,
   utils: defaultUtils
-}
+} as DefineConfigType

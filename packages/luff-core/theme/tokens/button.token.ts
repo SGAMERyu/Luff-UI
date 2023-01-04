@@ -3,13 +3,13 @@ import { generateThemeToSize } from '../../utils'
 export const buttonTokens = {
   size: {
     btn: {
-      ...generateThemeToSize([24, 32, 40, 48, 56])
+      ...generateThemeToSize([28, 32, 40, 48, 56])
     },
     btnSpace: {
-      ...generateThemeToSize([6, 14, 24, 32, 40])
+      ...generateThemeToSize([8, 16, 24, 32, 40])
     },
-    btnCompactSpace: {
-      ...generateThemeToSize([6, 8, 10, 12, 14])
+    btnRound: {
+      ...generateThemeToSize([2, 4, 8, 16, 32])
     }
   }
 }

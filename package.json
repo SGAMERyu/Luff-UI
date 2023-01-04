@@ -25,7 +25,7 @@
       "command": "pnpm -C packages/luff-icon run build"
     },
     "dev:component": {
-      "command": "pnpm -C packages/luff-icon run build --watch"
+      "command": "pnpm -C packages/luff-core run build --watch"
     }
   },
   "devDependencies": {
@@ -48,6 +48,7 @@
     "eslint-plugin-vue": "^9.8.0",
     "esno": "^0.16.3",
     "fast-glob": "^3.2.12",
+    "git-cz": "^4.9.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.1",

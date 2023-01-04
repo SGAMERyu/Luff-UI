@@ -4,5 +4,6 @@
 
 tasks:
   - init: pnpm install
+  - before: npm install -g commitizen 
 
 

@@ -1,7 +1,9 @@
-import type { ConfigTokens, PinceauTokens } from "pinceau";
+import type { DefineConfigType } from "pinceau";
 import { blue, red, gray, green, yellow, indigo } from "./colors";
+import commonTheme from './common'
+import defu from 'defu'
 
-const lightTheme: ConfigTokens & PinceauTokens = {
+export const lightThemeToken: DefineConfigType = {
   color: {
     // token color
     indigo,
@@ -16,4 +18,4 @@ const lightTheme: ConfigTokens & PinceauTokens = {
   },
 };
 
-export default lightTheme;
+export const lightTheme: DefineConfigType = defu(commonTheme, lightThemeToken)

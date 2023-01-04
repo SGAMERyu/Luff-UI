@@ -14,11 +14,15 @@ export const buttonProps = {
   },
   size: {
     type: String as PropType<Size>,
-    default: 'md'
+    default: 'sm'
   },
-  compact: {
+  radius: {
+    type: String as PropType<Size>,
+    default: 'sm'
+  },
+  loading: {
     type: Boolean,
-    default: false
+    default: false,
   }
 } as const
 

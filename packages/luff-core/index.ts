@@ -13,3 +13,5 @@ const components: Plugin[] = [LuffButton, LuffBalancer, LuffAlert, LuffIcon, Luf
 const installPieceUi = createInstaller(components)
 
 export default installPieceUi
+
+export * from './theme/light-theme'

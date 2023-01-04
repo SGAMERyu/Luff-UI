@@ -7,14 +7,14 @@ export interface VariantProps {
 
 const colors: Color[] = ['primary', 'danger', 'success', 'warning', 'info']
 
-export function variantColor(props: VariantProps, value = 400) {
+export function variantColor(props: VariantProps, value = 500) {
   if (colors.includes(props.color)) {
     return `{color.${props.color}.${value}}`
   }
   return props.color
 }
 
-export function variantBorderColor(props: VariantProps, value = 400) {
+export function variantBorderColor(props: VariantProps, value = 500) {
   if (colors.includes(props.color)) {
     return `1px solid {color.${props.color}.${value}}`
   }
