@@ -5,7 +5,7 @@ import Icon from './icon.vue'
 export const iconProps = {
   color: {
     type: String as PropType<Color>,
-    default: 'primary'
+    default: 'white'
   },
   size: {
     type: [String, Number] as PropType<Size>,

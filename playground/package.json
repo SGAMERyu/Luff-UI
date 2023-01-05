@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@luff-ui/core": "workspace:*",
+    "@luff-ui/icon": "workspace:*",
     "pinceau": "^0.10.3",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"

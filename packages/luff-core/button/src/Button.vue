@@ -1,123 +1,113 @@
 <template>
-  <button class="lu-btn">
-    <LuIcon v-if="loading"><LuLoader4Line/></LuIcon>
-    <slot />
-  </button>
+  <LuStyleButton v-bind="styleButtonProps" :css="{ ...styleButtonCss }">
+    <span
+      v-if="$slots.leftIcon || leftIcon || (loading && loadingPosition === 'left')"
+      class="lu-btn-icon__left"
+      :class="{ 'is-loading': loading }"
+    >
+      <slot name="leftIcon">
+        <LuIcon>
+          <Component :is="loading ? loadingIcon : leftIcon" />
+        </LuIcon>
+      </slot>
+    </span>
+    <span><slot /></span>
+    <span
+      v-if="$slots.rightIcon || rightIcon || (loading && loadingPosition === 'right')"
+      class="lu-btn-icon__right"
+      :class="{ 'is-loading': loading }"
+    >
+      <slot name="rightIcon">
+        <LuIcon>
+          <Component :is="loading ? loadingIcon : rightIcon" />
+        </LuIcon>
+      </slot>
+    </span>
+  </LuStyleButton>
 </template>
 
 <script lang="ts" setup>
-import { buttonProps } from './button.type'
-import { LuLoader4Line } from '@luff-ui/icon'
+import { buttonProps, buttonStyleProps } from './button.type'
+import LuStyleButton from './StyleButton.vue'
 import LuIcon from '~/icon'
-import { variantColor, variantBorderColor } from '~/utils'
 
 defineOptions({
   name: 'LuButton'
 })
 
-defineProps({ ...buttonProps, ...variants })
+const props = defineProps({ ...buttonProps, ...variants })
+
+const styleButtonProps = computed(() => {
+  const styleProps = {}
+  Object.keys(buttonStyleProps).forEach((key) => {
+    if (Reflect.has(props, key)) {
+      Reflect.set(styleProps, key, props[key])
+    }
+  })
+
+  return styleProps
+})
+
+const styleButtonCss = computed(() => {
+  const { disabled } = props
+  if (disabled) {
+    return {
+      color: '{color.textDisabled} !important',
+      backgroundColor: '{color.disabled} !important',
+      cursor: 'not-allowed',
+      '&:hover': {
+        color: '{color.text-disabled} !important',
+        backgroundColor: '{color.disabled} !important'
+      },
+    }
+  }
+  return {}
+})
 </script>
+
+<style>
+@keyframes loadingRotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+</style>
 
 <style lang="ts">
 css({
   variants: {
-    variant: {
-      filled: {
+    loading: {
+      true: {
         '&': {
-          color: '{color.white}',
-          backgroundColor: (props) => variantColor(props)
+          pointerEvents: 'none'
         },
-        '&:hover': {
-          backgroundColor: (props) => variantColor(props, 600)
-        }
-      },
-      outline: {
-        '&': {
-          color: (props) => variantColor(props),
-          border: (props) => variantBorderColor(props),
-          backgroundColor: 'transparent'
-        },
-        '&:hover': {
-          backgroundColor: (props) => variantColor(props),
-          color: '{color.white}'
-        }
-      },
-      light: {
-        '&': {
-          color: (props) => variantColor(props),
-          backgroundColor: (props) => variantColor(props, 100),
-        },
-        '&:hover': {
-          backgroundColor: (props) => variantColor(props, 200),
-        }
-      },
-      white: {
-        '&': {
-          backgroundColor: '{color.white}',
-          color: (props) => variantColor(props, 500)
-        }
-      },
-      subtle: {
-        '&': {
-          color: (props) => variantColor(props),
-          backgroundColor: 'transparent'
-        },
-        '&:hover': {
-          backgroundColor: (props) => variantColor(props, 100)
-        }
-      },
-      default: {
-        '&': {
-          color: '{color.gray.500}',
-          border: '1px solid {color.gray.500}',
-          backgroundColor: 'transparent'
-        },
-        '&:hover': {
-          backgroundColor: '{color.gray.100}'
+        '&::before': {
+          display: '',
+          content: '" "',
+          position: 'absolute',
+          inset: '-1px',
+          backgroundColor: '{color.midOpactityWhite}',
+          cursor: 'not-allowed'
         }
       },
       options: {
-        default: 'filled'
-      }
-    },
-    size: {
-      xs: {
-        '&': {
-          btnSize: 'xs'
-        }
-      },
-      sm: {
-        '&': {
-          btnSize: 'sm'
-        }
-      },
-      md: {
-        '&': {
-          btnSize: 'md'
-        }
-      },
-      lg: {
-        '&': {
-          btnSize: 'lg'
-        }
-      },
-      xl: {
-        '&': {
-          btnSize: 'xl'
-        }
-      },
-      options: {
-        default: 'sm'
+        default: false
       }
     },
   },
   '.lu-btn': {
-    display: 'flex',
-    alignItems: 'center',
-    outline: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    borderRadius: (props) => `{size.btnRound.${props.radius}}`
-  },
+    '&-icon__left': {
+      marginRight: '{size.btnSpace.leftIcon}',
+    },
+    '&-icon__right': {
+      marginLeft: '{size.btnSpace.rightIcon}'
+    },
+    '& .is-loading': {
+      'animation': 'loadingRotate 2s linear infinite'
+    }
+  }
 })
 </style>

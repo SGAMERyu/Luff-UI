@@ -4,7 +4,7 @@ import { DefineConfigType } from 'pinceau/index'
 
 const defaultTokens = {
   fontSize: {
-    ...generateThemeToSize([12, 14, 16, 20, 24])
+    ...generateThemeToSize([12, 14, 16, 18, 20])
   },
   size: {
     ...buttonTokens.size,
@@ -23,6 +23,7 @@ const defaultUtils = {
 const defaultColor = {
   // misc
   white: '#ffffff',
+  midOpactityWhite: 'rgba(255, 255, 255, 0.5)',
   black: '#000000',
   // brand
   primary: palette('blue'),

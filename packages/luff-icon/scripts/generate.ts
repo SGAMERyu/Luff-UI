@@ -39,8 +39,9 @@ function getSvgName(svgPath: string) {
 }
 
 function transformSvgToVueTemplate(componentName: string, content: string) {
+  const svgContent = content.replace(/^<svg /, '<svg fill="currentColor" width="1em" height="1em" ')
   return `<template>
-  ${content}
+  ${svgContent}
 </template>
 
 <script lang="ts">

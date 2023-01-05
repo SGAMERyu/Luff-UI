@@ -32,9 +32,19 @@
     <LuButton color="primary" radius="lg">Settings</LuButton>
     <LuButton color="primary" radius="xl">Settings</LuButton>
   </div>
+  <h2>loading</h2>
   <div class="demo-block">
     <LuButton color="primary" loading>Settings</LuButton>
+    <LuButton color="primary" loading loadingPosition="right">Settings</LuButton>
+    <LuButton color="primary" :leftIcon="Lu24HoursFill">Settings</LuButton>
+    <LuButton color="primary" :rightIcon="Lu24HoursFill">Settings</LuButton>
+  </div>
+  <h2>disabled</h2>
+  <div class="demo-block">
+    <LuButton disabled>Settings</LuButton>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { Lu24HoursFill } from '@luff-ui/icon'
+</script>
