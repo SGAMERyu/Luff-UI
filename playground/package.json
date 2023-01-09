@@ -12,6 +12,7 @@
   "dependencies": {
     "@luff-ui/core": "workspace:*",
     "@luff-ui/icon": "workspace:*",
+    "@vueuse/core": "^9.9.0",
     "pinceau": "^0.10.3",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
@@ -24,6 +25,7 @@
     "sass": "^1.57.1",
     "typescript": "~4.9.4",
     "unocss": "^0.48.0",
+    "unplugin-auto-import": "^0.12.1",
     "unplugin-vue-components": "^0.22.12",
     "vite": "^4.0.3",
     "vite-plugin-inspect": "^0.7.12",

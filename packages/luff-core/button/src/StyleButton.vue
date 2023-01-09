@@ -1,7 +1,7 @@
 <template>
-    <button class="lu-btn">
-        <slot />
-    </button>
+  <button class="lu-btn">
+    <slot />
+  </button>
 </template>
 
 <script lang="ts" setup>
@@ -22,45 +22,45 @@ css({
       filled: {
         '&': {
           color: '{color.white}',
-          backgroundColor: (props) => variantColor(props)
+          backgroundColor: (props) => variantColor(props.color)
         },
         '&:hover': {
-          backgroundColor: (props) => variantColor(props, 600)
+          backgroundColor: (props) => variantColor(props.color, 600)
         }
       },
       outline: {
         '&': {
-          color: (props) => variantColor(props),
-          border: (props) => variantBorderColor(props),
+          color: (props) => variantColor(props.color),
+          border: (props) => variantBorderColor(props.color),
           backgroundColor: 'transparent'
         },
         '&:hover': {
-          backgroundColor: (props) => variantColor(props),
+          backgroundColor: (props) => variantColor(props.color),
           color: '{color.white}'
         }
       },
       light: {
         '&': {
-          color: (props) => variantColor(props),
-          backgroundColor: (props) => variantColor(props, 100),
+          color: (props) => variantColor(props.color),
+          backgroundColor: (props) => variantColor(props.color, 100),
         },
         '&:hover': {
-          backgroundColor: (props) => variantColor(props, 200),
+          backgroundColor: (props) => variantColor(props.color, 200),
         }
       },
       white: {
         '&': {
           backgroundColor: '{color.white}',
-          color: (props) => variantColor(props, 500)
+          color: (props) => variantColor(props.color, 500)
         }
       },
       subtle: {
         '&': {
-          color: (props) => variantColor(props),
+          color: (props) => variantColor(props.color),
           backgroundColor: 'transparent'
         },
         '&:hover': {
-          backgroundColor: (props) => variantColor(props, 100)
+          backgroundColor: (props) => variantColor(props.color, 100)
         }
       },
       default: {
@@ -107,10 +107,19 @@ css({
         default: 'sm'
       }
     },
+    fullWidth: {
+      true: {
+        width: '100%'
+      },
+      options: {
+        default: false
+      }
+    }
   },
   '.lu-btn': {
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
+    justifyContent: 'center',
     outline: 'none',
     border: 'none',
     cursor: 'pointer',

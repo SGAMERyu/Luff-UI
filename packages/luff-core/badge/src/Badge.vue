@@ -27,7 +27,7 @@ css({
   variants: {
     color: {
       '&__dot': {
-        backgroundColor: (props) => variantColor(props),
+        backgroundColor: (props) => variantColor(props.color),
         border: '1px solid {color.white}'
       }
     },

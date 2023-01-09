@@ -23,7 +23,7 @@ const defaultUtils = {
 const defaultColor = {
   // misc
   white: '#ffffff',
-  midOpactityWhite: 'rgba(255, 255, 255, 0.5)',
+  midOpacityWhite: 'rgba(255, 255, 255, 0.5)',
   black: '#000000',
   // brand
   primary: palette('blue'),

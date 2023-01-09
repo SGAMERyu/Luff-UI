@@ -1,6 +1,6 @@
 import { ExtractPropTypes, PropType, Component } from 'vue'
 import Alert from './Alert.vue'
-import { Variant } from '~/types'
+import { Color, Variant, Size } from '~/types'
 
 export type AlertVariant = Variant
 
@@ -12,10 +12,27 @@ export const alertProps = {
     type: String
   },
   variant: {
-    type: String as PropType<AlertVariant>
+    type: String as PropType<AlertVariant>,
+    default: 'filled'
+  },
+  color: {
+    type: String as PropType<Color | string>,
+    default: 'primary'
   },
   icon: {
     type: Object as PropType<Component>
+  },
+  radius: {
+    type: String as PropType<Size>,
+    default: 'sm'
+  },
+  showClose: {
+    type: Boolean,
+    default: false
+  },
+  modelValue: {
+    type: Boolean,
+    default: true
   }
 }
 

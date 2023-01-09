@@ -1,6 +1,7 @@
 import { Color, Size } from '~/types'
 import { ExtractPropTypes, PropType } from 'vue'
-import Icon from './icon.vue'
+import Icon from './Icon.vue'
+import { cssProp } from 'pinceau/runtime'
 
 export const iconProps = {
   color: {
@@ -10,7 +11,8 @@ export const iconProps = {
   size: {
     type: [String, Number] as PropType<Size>,
     default: 'md'
-  }
+  },
+  css: cssProp
 }
 
 export type IconProps = ExtractPropTypes<typeof iconProps>

@@ -1,5 +1,5 @@
 <template>
-  <TheButton />
+  <TheAlert />
 </template>
 
 <style scoped></style>

@@ -28,9 +28,9 @@ export default defineConfig({
       dts: true,
       imports: ['vue', '@vueuse/core']
     }),
-    // Inspect({
-    //   build: true
-    // })
+    Inspect({
+      build: true
+    })
   ],
   resolve: {
     alias: [

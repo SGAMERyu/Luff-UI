@@ -89,7 +89,7 @@ css({
           content: '" "',
           position: 'absolute',
           inset: '-1px',
-          backgroundColor: '{color.midOpactityWhite}',
+          backgroundColor: '{color.midOpacityWhite}',
           cursor: 'not-allowed'
         }
       },

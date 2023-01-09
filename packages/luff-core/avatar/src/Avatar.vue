@@ -38,19 +38,19 @@ css({
             filled: {
                 '&': {
                     color: '{color.white}',
-                    backgroundColor: (props) => variantColor(props)
+                    backgroundColor: (props) => variantColor(props.color)
                 }
             },
             outline: {
                 '&': {
-                    color: (props) => variantColor(props),
-                    border: (props) => variantBorderColor(props)
+                    color: (props) => variantColor(props.color),
+                    border: (props) => variantBorderColor(props.color)
                 }
             },
             light: {
                 '&': {
-                    color: (props) => variantColor(props, 500),
-                    backgroundColor: (props) => variantColor(props),
+                    color: (props) => variantColor(props.color, 500),
+                    backgroundColor: (props) => variantColor(props.color),
                 }
             }
         },

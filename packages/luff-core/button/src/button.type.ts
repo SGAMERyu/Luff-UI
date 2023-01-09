@@ -24,6 +24,10 @@ export const buttonStyleProps = {
     type: String as PropType<Size>,
     default: 'sm'
   },
+  fullWidth: {
+    type: Boolean,
+    default: false,
+  },
   css: cssProp
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <i v-bind="$attrs" class="lu-icon" :style="iconStyle">
+  <i v-bind="$attrs" class="lu-icon">
     <slot></slot>
   </i>
 </template>
@@ -12,13 +12,7 @@ defineOptions({
   inheritAttrs: false
 })
 
-const props = defineProps(iconProps)
-
-const iconStyle = computed(() => {
-  return {
-    color: props.color
-  }
-})
+defineProps(iconProps)
 </script>
 
 <style lang="ts">
@@ -28,7 +22,8 @@ css({
     alignItems: 'center',
     justifyContent: 'center',
     width: '1em',
-    height: '1em'
+    height: '1em',
+    color: (props) => props.color
   }
 })
 </style>
