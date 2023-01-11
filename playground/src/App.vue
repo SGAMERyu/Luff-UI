@@ -1,5 +1,8 @@
+
+import TheAvatar from './components/TheAvatar.vue';
+
 <template>
-  <TheAlert />
+  <TheAvatar />
 </template>
 
 <style scoped></style>

@@ -1,6 +1,6 @@
 <template>
   <div class="lu-avatar">
-    <div v-if="$slots.default" class="lu-avatar__content">
+    <div v-if="$slots.default || !src" class="lu-avatar__content">
       <slot>
         <LuffIcon><LuUserLine /></LuffIcon>
       </slot>
@@ -13,74 +13,87 @@
 import { avatarProps } from './avatar.type'
 import { LuUserLine } from '@luff-ui/icon'
 import { LuffIcon } from '~/icon'
+import { variantColor, variantBorderColor } from '~/utils'
+
+defineOptions({
+  name: 'LuAvatar'
+})
 
 defineProps({ ...avatarProps, ...variants })
 </script>
 
 <style lang="ts">
 css({
-    '.lu-avatar': {
-        display: 'block',
-        '&__content': {
-            display: "flex",
-            alignItems: 'center',
-            justifyContent: 'center',
-        },
-        '&__image': {
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block'
-        }
+  '.lu-avatar': {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '&__content': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
-    variants: {
-        variant: {
-            filled: {
-                '&': {
-                    color: '{color.white}',
-                    backgroundColor: (props) => variantColor(props.color)
-                }
-            },
-            outline: {
-                '&': {
-                    color: (props) => variantColor(props.color),
-                    border: (props) => variantBorderColor(props.color)
-                }
-            },
-            light: {
-                '&': {
-                    color: (props) => variantColor(props.color, 500),
-                    backgroundColor: (props) => variantColor(props.color),
-                }
-            }
-        },
-        size: {
-            xs: {
-                '&': {
-                    avatarSize: 'xs'
-                }
-            },
-            sm: {
-                '&': {
-                    avatarSize: 'sm'
-                }
-            },
-            md: {
-                '&': {
-                    avatarSize: 'md'
-                }
-            },
-            lg: {
-                '&': {
-                    avatarSize: 'lg'
-                }
-            },
-            xl: {
-                '&': {
-                    avatarSize: 'xl'
-                }
-            },
-        }
+    '&__image': {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      display: 'block'
     }
+  },
+  variants: {
+    variant: {
+      filled: {
+        '&': {
+          color: '{color.white}',
+          backgroundColor: (props) => variantColor(props.color)
+        }
+      },
+      outline: {
+        '&': {
+          color: (props) => variantColor(props.color),
+          border: (props) => variantBorderColor(props.color)
+        }
+      },
+      light: {
+        '&': {
+          color: (props) => variantColor(props.color),
+          backgroundColor: (props) => variantColor(props.color, 100)
+        }
+      },
+      options: {
+        default: 'light'
+      }
+    },
+    size: {
+      xs: {
+        '&': {
+          avatarSize: 'xs'
+        }
+      },
+      sm: {
+        '&': {
+          avatarSize: 'sm'
+        }
+      },
+      md: {
+        '&': {
+          avatarSize: 'md'
+        }
+      },
+      lg: {
+        '&': {
+          avatarSize: 'lg'
+        }
+      },
+      xl: {
+        '&': {
+          avatarSize: 'xl'
+        }
+      },
+      options: {
+        default: 'sm'
+      }
+    }
+  }
 })
 </style>
