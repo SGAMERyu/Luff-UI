@@ -4,13 +4,18 @@ import { DefineConfigType } from 'pinceau/index'
 
 const defaultTokens = {
   fontSize: {
-    ...generateThemeToSize([12, 14, 16, 18, 20])
+    ...generateThemeToSize([12, 14, 16, 18, 20]),
+    ...buttonTokens.fontSize,
+    ...avatarTokens.fontSize
   },
   size: {
     ...buttonTokens.size,
     ...alertTokens.size,
     ...avatarTokens.size,
     ...badgeTokens.size
+  },
+  radii: {
+    ...badgeTokens.radii
   }
 }
 

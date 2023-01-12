@@ -23,7 +23,7 @@ css({
     justifyContent: 'center',
     width: '1em',
     height: '1em',
-    color: (props) => props.color
+    color: (props) => props.color || 'inherit'
   }
 })
 </style>

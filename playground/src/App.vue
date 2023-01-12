@@ -1,8 +1,5 @@
-
-import TheAvatar from './components/TheAvatar.vue';
-
 <template>
-  <TheAvatar />
+  <TheBadge />
 </template>
 
 <style scoped></style>

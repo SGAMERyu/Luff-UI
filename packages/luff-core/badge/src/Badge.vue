@@ -1,7 +1,9 @@
 <template>
   <div class="lu-badge">
     <slot />
-    <span class="lu-badge__dot"></span>
+    <span class="lu-badge__dot">
+      <slot name="content">{{ content }}</slot>
+    </span>
   </div>
 </template>
 
@@ -13,77 +15,65 @@ defineOptions({
   name: 'LuBadge'
 })
 
-defineProps({ ...badgeProps, ...variants })
+const props = defineProps({ ...badgeProps, ...variants })
+
+function createDotPlacement() {
+  const { placement } = props
+  if (placement === 'bottom-left') {
+    return 'calc(100% - 12px) calc(100% - 12px) auto auto'
+  } else if (placement === 'bottom-right') {
+    return 'calc(100% - 12px) auto auto calc(100% - 12px)'
+  } else if (placement === 'top-left') {
+    return 'auto calc(100% - 12px) calc(100% - 12px) auto'
+  } else if (placement === 'top-right') {
+    return 'auto auto calc(100% - 12px) calc(100% - 12px)'
+  }
+}
 </script>
 
 <style lang="ts">
 css({
   '.lu-badge': {
-    position: 'relative'
+    position: 'relative',
     '&__dot': {
       position: 'absolute',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '{color.white}',
+      border: '2px solid {color.white}',
+      borderRadius: '{radii.badge}',
+      fontSize: '{fontSize.xs}',
+      backgroundColor: (props) => variantColor(props.color),
+      inset: (props) => createDotPlacement(props)
     }
   },
   variants: {
-    color: {
-      '&__dot': {
-        backgroundColor: (props) => variantColor(props.color),
-        border: '1px solid {color.white}'
-      }
-    },
     size: {
-      xs: {
-        '&__dot': {
-          badgeSpace: 'xs'
-        }
-      },
       sm: {
-        '&__dot': {
-          badgeSpace: 'sm'
+        '.lu-badge__dot': {
+          badgeSize: 'sm',
         }
       },
-      md: {
-        '&__dot': {
-          badgeSpace: 'md'
-        }
-      },
-      lg: {
-        '&__dot': {
-          badgeSpace: 'lg'
-        }
-      },
-      xl: {
-        '&__dot': {
-          badgeSpace: 'xl'
+      default: {
+        '.lu-badge__dot': {
+          badgeSize: 'default',
         }
       },
       options: {
-        default: 'md'
+        default: 'default'
       }
     },
-    placement: {
-      'bottom-left': {
-        '&': {
-          badgePlacement: 'bottom-left'
-        }
-      },
-      'bottom-right': {
-        '&': {
-          badgePlacement: 'bottom-right'
-        }
-      },
-      'top-left': {
-        '&': {
-          badgePlacement: 'top-left'
-        }
-      },
-      'top-right': {
-        '&': {
-          badgePlacement: 'top-right'
+    dot: {
+      true: {
+        '.lu-badge__dot': {
+          minWidth: '{size.badge.dotSize}',
+          height: '{size.badge.dotSize}',
+          fontSize: '0px',
         }
       },
       options: {
-        default: 'top-right'
+        default: false
       }
     }
   }

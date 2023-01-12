@@ -26,6 +26,6 @@ export const buttonUtils = {
     height: `{size.btn.${value}}`,
     paddingLeft: `{size.btnSpace.${value}}`,
     paddingRight: `{size.btnSpace.${value}}`,
-    fontSize: `{fontSize.${value}}`
+    fontSize: `{fontSize.btnText.${value}}`
   })
 }

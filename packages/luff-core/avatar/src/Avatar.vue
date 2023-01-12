@@ -1,11 +1,11 @@
 <template>
   <div class="lu-avatar">
-    <div v-if="$slots.default || !src" class="lu-avatar__content">
+    <img v-if="src" :src="src" :alt="alt" class="lu-avatar__image" />
+    <div v-else class="lu-avatar__content">
       <slot>
         <LuffIcon><LuUserLine /></LuffIcon>
       </slot>
     </div>
-    <img v-else :src="src" :alt="alt" class="lu-avatar__image" />
   </div>
 </template>
 
@@ -28,17 +28,19 @@ css({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: (props) => `{size.avatarRound.${props.radius}}`,
+    boxSizing: 'border-box',
     '&__content': {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
     },
     '&__image': {
       width: '100%',
       height: '100%',
       objectFit: 'cover',
       display: 'block'
-    }
+    },
   },
   variants: {
     variant: {
@@ -91,7 +93,7 @@ css({
         }
       },
       options: {
-        default: 'sm'
+        default: 'md'
       }
     }
   }

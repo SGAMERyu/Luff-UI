@@ -22,6 +22,10 @@ export const avatarProps = {
   size: {
     type: String as PropType<Size>,
     default: "sm"
+  },
+  radius: {
+    type: String as PropType<Size>,
+    default: 'sm'
   }
 }
 

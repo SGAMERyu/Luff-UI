@@ -6,7 +6,6 @@ import { cssProp } from 'pinceau/runtime'
 export const iconProps = {
   color: {
     type: String as PropType<Color>,
-    default: 'white'
   },
   size: {
     type: [String, Number] as PropType<Size>,
