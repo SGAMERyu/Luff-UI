@@ -1,24 +1,20 @@
-import { generateThemeToSize } from '../../utils'
-
 export const badgeTokens = {
   size: {
     badge: {
-      ...generateThemeToSize([4, 12, 24, 32, 40]),
-      dotSize: '8px'
-    },
-    badgeSize: {
+      dotSize: '8px',
       default: '20px',
-      sm: '12px'
-    }
+      sm: '12px',
+      dotSpace: '0 4px'
+    },
   },
   radii: {
-    badge: '50%'
+    badge: '999px'
   }
 }
 
 export const badgeUtils = {
   badgeSize: (value: string) => ({
-    minWidth: `{size.badgeSize.${value}}`,
-    height: `{size.badgeSize.${value}}`
+    minWidth: `{size.badge.${value}}`,
+    height: `{size.badge.${value}}`
   }),
 }

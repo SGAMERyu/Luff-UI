@@ -6,10 +6,10 @@
         <LuClockwiseFill />
       </LuIcon>
     </LuBadge>
-    <LuBadge :content="9">
+    <LuBadge :content="99">
       <LuButton> Button </LuButton>
     </LuBadge>
-    <LuBadge :content="9">
+    <LuBadge content="999+">
       <LuAvatar src="https://avatars.githubusercontent.com/u/17926105?v=4"> </LuAvatar>
     </LuBadge>
   </div>

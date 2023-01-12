@@ -44,6 +44,7 @@ css({
       border: '2px solid {color.white}',
       borderRadius: '{radii.badge}',
       fontSize: '{fontSize.xs}',
+      padding: '{size.badge.dotSpace}',
       backgroundColor: (props) => variantColor(props.color),
       inset: (props) => createDotPlacement(props)
     }
