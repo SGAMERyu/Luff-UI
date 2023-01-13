@@ -1,5 +1,5 @@
 <template>
-  <LuStyleButton v-bind="styleButtonProps" :css="{ ...styleButtonCss }">
+  <LuStyleButton v-bind="styleButtonProps" :css="{ ...styleButtonCss }" @click="handleClick">
     <span
       v-if="$slots.leftIcon || leftIcon || (loading && loadingPosition === 'left')"
       class="lu-btn-icon__left"
@@ -36,6 +36,9 @@ defineOptions({
 })
 
 const props = defineProps({ ...buttonProps, ...variants })
+const emits = defineEmits<{
+  (e: 'click'): void
+}>()
 
 const styleButtonProps = computed(() => {
   const styleProps = {}
@@ -58,21 +61,26 @@ const styleButtonCss = computed(() => {
       '&:hover': {
         color: '{color.text-disabled} !important',
         backgroundColor: '{color.disabled} !important'
-      },
+      }
     }
   }
   return {}
 })
+
+function handleClick() {
+  const { disabled } = props
+  !disabled && emits('click')
+}
 </script>
 
 <style>
 @keyframes loadingRotate {
-    from {
-        transform: rotate(0);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
 

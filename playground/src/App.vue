@@ -1,5 +1,5 @@
 <template>
-  <TheBadge />
+  <TheChip />
 </template>
 
 <style scoped></style>

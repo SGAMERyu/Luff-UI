@@ -1,4 +1,13 @@
-import { buttonTokens, buttonUtils, alertTokens, avatarTokens, avatarUtils, badgeTokens, badgeUtils } from './tokens/'
+import {
+  buttonTokens,
+  buttonUtils,
+  alertTokens,
+  avatarTokens,
+  avatarUtils,
+  badgeTokens,
+  badgeUtils,
+  chipTokens
+} from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
 import { DefineConfigType } from 'pinceau/index'
 
@@ -12,10 +21,15 @@ const defaultTokens = {
     ...buttonTokens.size,
     ...alertTokens.size,
     ...avatarTokens.size,
-    ...badgeTokens.size
+    ...badgeTokens.size,
+    ...chipTokens.size
   },
   radii: {
-    ...badgeTokens.radii
+    ...badgeTokens.radii,
+    ...chipTokens.radii
+  },
+  space: {
+    ...chipTokens.space
   }
 }
 

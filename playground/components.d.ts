@@ -14,5 +14,6 @@ declare module '@vue/runtime-core' {
     TheBadge: typeof import('./src/components/TheBadge.vue')['default']
     TheBalancer: typeof import('./src/components/TheBalancer.vue')['default']
     TheButton: typeof import('./src/components/TheButton.vue')['default']
+    TheChip: typeof import('./src/components/TheChip.vue')['default']
   }
 }
