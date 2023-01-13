@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { avatarProps } from './avatar.type'
 import { LuUserLine } from '@luff-ui/icon'
-import { LuffIcon } from '~/icon'
+import { LuffIcon } from '~/components/icon'
 import { variantColor, variantBorderColor } from '~/utils'
 
 defineOptions({

@@ -25,8 +25,8 @@
 
 <script lang="ts" setup>
 import { alertProps } from './alert.type'
-import { LuffBalancer } from '~/balancer'
-import { LuffIcon } from '~/icon'
+import { LuffBalancer } from '~/components/balancer'
+import { LuffIcon } from '~/components/icon'
 import { LuCloseFill } from '@luff-ui/icon'
 import { variantColor, variantBorderColor } from '~/utils'
 

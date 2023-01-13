@@ -6,7 +6,6 @@
 
 <script lang="ts" setup>
 import { balancerProps } from './balancer.type'
-import { useResizeObserver } from '@vueuse/core'
 
 defineOptions({
   name: 'LuBalancer'

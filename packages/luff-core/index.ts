@@ -1,10 +1,4 @@
-import { LuffButton } from '~/button'
-import { LuffBalancer } from '~/balancer'
-import { LuffAlert } from '~/alert'
-import { LuffIcon } from '~/icon'
-import { LuffAvatar } from '~/avatar'
-import { LuBadge } from '~/badge'
-import { LuffChip } from '~/chip'
+import { LuffButton, LuffBalancer, LuffAlert, LuffIcon, LuffAvatar, LuBadge, LuffChip } from '~/components'
 import { createInstaller } from './utils'
 import type { Plugin } from 'vue'
 

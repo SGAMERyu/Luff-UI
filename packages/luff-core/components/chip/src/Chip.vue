@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 import { chipProps } from './Chip.type'
-import LuffIcon from '~/icon'
+import LuffIcon from '~/components/icon'
 import { variantBorderColor, variantColor } from '~/utils'
 
 defineOptions({

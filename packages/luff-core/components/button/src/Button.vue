@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import { buttonProps, buttonStyleProps } from './button.type'
 import LuStyleButton from './StyleButton.vue'
-import LuIcon from '~/icon'
+import LuIcon from '~/components/icon'
 
 defineOptions({
   name: 'LuButton'
