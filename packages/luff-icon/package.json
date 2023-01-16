@@ -14,8 +14,7 @@
   },
   "scripts": {
     "generate": "esno scripts/generate.ts",
-    "build": " pnpm generate && esno scripts/build.ts && pnpm build:types",
-    "build:types": "vue-tsc --declaration --emitDeclarationOnly"
+    "build": " pnpm generate && esno scripts/build.ts && pnpm build:types"
   },
   "exports": {
     ".": {
@@ -32,7 +31,6 @@
     "esbuild": "^0.16.13",
     "fs-extra": "^11.1.0",
     "unplugin-vue": "4.0.1",
-    "vue": "^3.2.45",
-    "vue-tsc": "^1.0.19"
+    "vue": "^3.2.45"
   }
 }

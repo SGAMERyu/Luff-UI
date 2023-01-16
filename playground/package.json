@@ -6,8 +6,7 @@
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit"
+    "build-only": "vite build"
   },
   "dependencies": {
     "@luff-ui/core": "workspace:*",
@@ -28,7 +27,6 @@
     "unplugin-auto-import": "^0.12.1",
     "unplugin-vue-components": "^0.22.12",
     "vite": "^4.0.3",
-    "vite-plugin-inspect": "^0.7.12",
-    "vue-tsc": "^1.0.19"
+    "vite-plugin-inspect": "^0.7.12"
   }
 }
