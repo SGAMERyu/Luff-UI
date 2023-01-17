@@ -8,7 +8,7 @@ module.exports = defineConfig({
   },
   globals: {
     defineOptions: 'writable',
-    $variantsProps: 'writable'
+    variants: 'writable'
   },
   plugins: ['@typescript-eslint', 'promise', 'prettier', 'unicorn'],
   parser: 'vue-eslint-parser',

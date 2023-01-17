@@ -1,25 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "baseUrl": "./",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "jsx": "preserve",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "noEmit": true,
-    "types": ["unplugin-vue-macros/macros-global" /* ... */],
     "paths": {
       "~/*": ["./*"]
     }
-  },
-  "references": [{ "path": "./tsconfig.node.json" }],
-  "vueCompilerOptions": {
-    "plugins": ["pinceau/volar"]
   }
 }

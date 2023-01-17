@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowJs": true,
+    "types": ["unplugin-vue-macros/macros-global" /* ... */]
+  },
+  "vueCompilerOptions": {
+    "plugins": ["pinceau/volar"]
+  }
+}
