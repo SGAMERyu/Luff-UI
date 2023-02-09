@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { badgeProps } from './badge.type'
+import { BadgePlacement, badgeProps } from './badge.type'
 import { variantColor } from '~/utils'
 
 defineOptions({
@@ -17,8 +17,7 @@ defineOptions({
 
 const props = defineProps({ ...badgeProps, ...variants })
 
-function createDotPlacement() {
-  const { placement } = props
+function createDotPlacement(placement: BadgePlacement) {
   if (placement === 'bottom-left') {
     return 'calc(100% - 12px) calc(100% - 12px) auto auto'
   } else if (placement === 'bottom-right') {
@@ -46,7 +45,7 @@ css({
       fontSize: '{fontSize.xs}',
       padding: '{size.badge.dotSpace}',
       backgroundColor: (props) => variantColor(props.color),
-      inset: (props) => createDotPlacement(props)
+      inset: (props) => createDotPlacement(props.placement)
     }
   },
   variants: {

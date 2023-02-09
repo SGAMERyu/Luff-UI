@@ -14,6 +14,7 @@ export const badgeProps = {
   },
   placement: {
     type: String as PropType<BadgePlacement>,
+    require: true,
     default: 'top-right'
   },
   size: {
