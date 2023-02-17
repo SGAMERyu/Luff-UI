@@ -1,5 +1,5 @@
 <template>
-  <TheChip />
+  <TheBreadcrumbs />
 </template>
 
 <style scoped></style>

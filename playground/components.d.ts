@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     TheAvatar: typeof import('./src/components/TheAvatar.vue')['default']
     TheBadge: typeof import('./src/components/TheBadge.vue')['default']
     TheBalancer: typeof import('./src/components/TheBalancer.vue')['default']
+    TheBreadcrumbs: typeof import('./src/components/TheBreadcrumbs.vue')['default']
     TheButton: typeof import('./src/components/TheButton.vue')['default']
     TheChip: typeof import('./src/components/TheChip.vue')['default']
   }
