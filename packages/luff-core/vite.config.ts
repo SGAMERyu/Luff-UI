@@ -2,16 +2,17 @@
 
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
 import Dts from 'vite-plugin-dts'
 import AutoImport from 'unplugin-auto-import/vite'
 import Pinceau from 'pinceau/vite'
-import VueMacros from 'unplugin-vue-macros/vite'
+import DefineOptions from 'unplugin-vue-define-options/vite'
 import Inspect from 'vite-plugin-inspect'
 
 export default defineConfig({
   logLevel: 'info',
   plugins: [
+    Vue(),
     Pinceau({
       configLayers: [resolve(__dirname, 'theme')],
       configFileName: 'tokens.config',
@@ -19,11 +20,7 @@ export default defineConfig({
       debug: true
     }),
     // Dts(),
-    VueMacros({
-      plugins: {
-        vue: vue()
-      }
-    }),
+    DefineOptions(),
     AutoImport({
       dts: true,
       imports: ['vue', '@vueuse/core']

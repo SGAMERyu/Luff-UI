@@ -12,11 +12,8 @@
   },
   "dependencies": {
     "@luff-ui/icon": "workspace:1.0.0",
-    "defu": "^6.1.2"
-  },
-  "devDependencies": {
-    "@histoire/plugin-vue": "^0.13.2",
-    "histoire": "^0.13.2"
+    "defu": "^6.1.2",
+    "theme-colors": "^0.0.5"
   },
   "files": [
     "dist",

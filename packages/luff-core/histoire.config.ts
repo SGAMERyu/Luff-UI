@@ -13,5 +13,5 @@ export default defineConfig({
       debug: true
     })]
   },
-  setupFile: '/src/histoire.setup.ts',
+  setupFile: 'histoire.setup.ts',
 })

@@ -1,11 +1,3 @@
-export const green = {
-  100: '#EEFBD0',
-  200: '#DAF8A2',
-  300: '#BBEA71',
-  400: '#99D54B',
-  500: '#6CBA1A',
-  600: '#549F13',
-  700: '#3F850D',
-  800: '#2C6B08',
-  900: '#1F5904'
-}
+import { getColors } from 'theme-colors'
+
+export const green = getColors('#6CBA1A')

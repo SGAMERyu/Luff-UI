@@ -1,11 +1,2 @@
-export const gray = {
-  100: '#E4ECF5',
-  200: '#CAD8EC',
-  300: '#9CADC7',
-  400: '#697790',
-  500: '#2D3546',
-  600: '#20283C',
-  700: '#161D32',
-  800: '#0E1428',
-  900: '#080D21'
-}
+import { getColors } from 'theme-colors'
+export const gray = getColors('#2D3546')

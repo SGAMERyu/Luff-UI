@@ -11,7 +11,7 @@
     "skipLibCheck": true,
     "noEmit": true,
     "allowJs": true,
-    "types": ["unplugin-vue-macros/macros-global" /* ... */]
+    "types": ["unplugin-vue-define-options/macros-global" /* ... */]
   },
   "vueCompilerOptions": {
     "plugins": ["pinceau/volar"]
