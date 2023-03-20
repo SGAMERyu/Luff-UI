@@ -6,6 +6,12 @@
       width: '500px'
     }"
   >
-    <div>123</div>
+    <Variant title="baseButton">
+      <LuButton>button</LuButton>
+    </Variant>
   </Story>
 </template>
+
+<script lang="ts" setup>
+import LuButton from './Button.vue'
+</script>

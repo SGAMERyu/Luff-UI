@@ -2,12 +2,13 @@
   "name": "luff-ui",
   "scripts": {
     "prepare": "husky install",
-    "commit": "git cz",
+    "commit": "czg",
     "build": "wireit",
     "build:icon": "wireit",
     "dev:component": "wireit",
     "play": "pnpm -C playground run dev",
     "play:component": "pnpm -C packages/luff-core run play",
+    "add-component": "esno scripts/add-component.ts", 
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
     "clear:dep": "npx npkill"
   },
@@ -35,12 +36,13 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@histoire/plugin-vue": "^0.15.8",
     "@types/node": "^18.14.2",
+    "@types/fs-extra": "^11.0.1",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "chalk": "^5.2.0",
     "consola": "^2.15.3",
-    "cz-git": "^1.5.0",
+    "czg": "^1.5.2",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-define-config": "^1.15.0",
@@ -63,17 +65,21 @@
     "typescript": "^4.9.5",
     "unplugin-auto-import": "^0.15.0",
     "unplugin-vue-macros": "^1.9.1",
+    "unplugin-vue-define-options": "^1.2.3",
     "vite": "^4.1.4",
     "vite-plugin-dts": "^2.0.2",
     "vite-plugin-inspect": "^0.7.15",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",
-    "wireit": "^0.9.5"
+    "wireit": "^0.9.5",
+    "sfc-composer": "^0.0.2",
+    "fs-extra": "^11.1.0"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git",
-      "useEmoji": true
+      "useEmoji": true,
+      "useAi": true
     }
   },
   "lint-staged": {
