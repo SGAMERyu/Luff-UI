@@ -15,6 +15,7 @@ function createComponentSFC(name: string) {
     },
     styles: [
       {
+        lang: 'ts',
         content: `css({variants: {},'.lu-${styleName}': {}})`
       }
     ]
