@@ -5,13 +5,5 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [HstVue()],
-  vite: {
-    plugins: [Pinceau({
-      configLayers: [resolve(__dirname, 'theme')],
-      configFileName: 'tokens.config',
-      colorSchemeMode: 'class',
-      debug: true
-    })]
-  },
-  setupFile: 'histoire.setup.ts',
+  setupFile: 'histoire.setup.ts'
 })

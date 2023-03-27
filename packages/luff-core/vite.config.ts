@@ -23,7 +23,8 @@ export default defineConfig({
     DefineOptions(),
     AutoImport({
       dts: true,
-      imports: ['vue', '@vueuse/core']
+      imports: ['vue', '@vueuse/core'],
+      dirs: ['./hook']
     }),
     Inspect({
       build: true

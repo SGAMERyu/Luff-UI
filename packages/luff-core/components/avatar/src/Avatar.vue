@@ -1,19 +1,16 @@
 <template>
-  <div class="lu-avatar">
-    <img v-if="src" :src="src" :alt="alt" class="lu-avatar__image" />
-    <div v-else class="lu-avatar__content">
-      <slot>
-        <LuffIcon><LuUserLine /></LuffIcon>
-      </slot>
-    </div>
-  </div>
+  <component :is="as" class="lu-avatar">
+    <img v-if="src" :src="src" />
+    <span v-else-if="text">{{ text }}</span>
+    <span v-else class="lu-avatar__placeholder">
+      <AvatarPlaceholderIcon />
+    </span>
+  </component>
 </template>
 
 <script lang="ts" setup>
 import { avatarProps } from './avatar.type'
-import { LuUserLine } from '@luff-ui/icon'
-import { LuffIcon } from '~/components/icon'
-import { variantColor, variantBorderColor } from '~/utils'
+import AvatarPlaceholderIcon from './AvatarPlaceholderIcon.vue'
 
 defineOptions({
   name: 'LuAvatar'
@@ -24,78 +21,78 @@ defineProps({ ...avatarProps, ...variants })
 
 <style lang="ts">
 css({
-  '.lu-avatar': {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: (props) => `{size.avatarRound.${props.radius}}`,
-    boxSizing: 'border-box',
-    '&__content': {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    '&__image': {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'block'
-    },
-  },
   variants: {
+    appearance: {
+      circle: {
+        '&': {
+          borderRadius: '{radii.avatar.circle}'
+        }
+      },
+      square: {
+        '&': {
+          borderRadius: '{radii.avatar.square}'
+        }
+      },
+      options: {
+        default: 'circle'
+      }
+    },
     variant: {
+      light: {
+        '&': {
+          backgroundColor: (props) => `{color.${props.color}.100}`,
+          color: (props) => props.textColor || `{color.${props.color}.500}`
+        },
+      },
       filled: {
         '&': {
-          color: '{color.white}',
-          backgroundColor: (props) => variantColor(props.color)
-        }
+          backgroundColor: (props) => `{color.${props.color}.500}`,
+          color: (props) => props.textColor || '{color.white}'
+        },
       },
       outline: {
         '&': {
-          color: (props) => variantColor(props.color),
-          border: (props) => variantBorderColor(props.color)
-        }
-      },
-      light: {
-        '&': {
-          color: (props) => variantColor(props.color),
-          backgroundColor: (props) => variantColor(props.color, 100)
-        }
+          backgroundColor: 'transparent',
+          border: (props) => `{borderWidth.avatar.outline} solid {color.${props.color}.500}`,
+          color: (props) => props.textColor || `{color.${props.color}.500}`,
+        },
       },
       options: {
         default: 'light'
       }
     },
-    size: {
-      xs: {
-        '&': {
-          avatarSize: 'xs'
+    disabled: {
+      true: {
+        '&:before': {
+          display: 'block',
+          content: 'test',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          background: '{color.neutral.500}'
         }
-      },
-      sm: {
-        '&': {
-          avatarSize: 'sm'
-        }
-      },
-      md: {
-        '&': {
-          avatarSize: 'md'
-        }
-      },
-      lg: {
-        '&': {
-          avatarSize: 'lg'
-        }
-      },
-      xl: {
-        '&': {
-          avatarSize: 'xl'
-        }
-      },
-      options: {
-        default: 'md'
       }
     }
-  }
-})
+  },
+  '.lu-avatar': {
+    position: 'relative',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+    verticalAlign: 'middle',
+    width: (props) => `{size.avatar.${props.size}}`,
+    height: (props) => `{size.avatar.${props.size}}`,
+    fontSize: (props) => `{fontSize.avatar.text.${props.size}}`,
+    '&__placeholder': {
+      display: 'inline-flex',
+      '& > svg': {
+        maxWidth: '100%',
+        maxHeight: '100%',
+        fill: 'currentColor'
+      }
+    },
+    }
+  },
+)
 </style>

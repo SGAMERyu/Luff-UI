@@ -1,15 +1,5 @@
-import {
-  buttonTokens,
-  buttonUtils,
-  alertTokens,
-  avatarTokens,
-  avatarUtils,
-  badgeTokens,
-  badgeUtils,
-  chipTokens
-} from './tokens/'
+import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens } from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
-import { DefineConfigType } from 'pinceau/index'
 
 const defaultTokens = {
   fontSize: {
@@ -26,17 +16,15 @@ const defaultTokens = {
   },
   radii: {
     ...badgeTokens.radii,
-    ...chipTokens.radii
+    ...chipTokens.radii,
+    ...avatarTokens.radii
   },
   space: {
     ...chipTokens.space
+  },
+  borderWidth: {
+    ...avatarTokens.borderWidth
   }
-}
-
-const defaultUtils = {
-  ...buttonUtils,
-  ...avatarUtils,
-  ...badgeUtils
 }
 
 const defaultColor = {
@@ -49,11 +37,12 @@ const defaultColor = {
   danger: palette('red'),
   warning: palette('yellow'),
   success: palette('green'),
-  info: palette('indigo')
+  info: palette('indigo'),
+  neutral: palette('neutral')
 }
 
 export default {
   ...defaultTokens,
   color: defaultColor,
-  utils: defaultUtils
-} as DefineConfigType
+  utils: {}
+}

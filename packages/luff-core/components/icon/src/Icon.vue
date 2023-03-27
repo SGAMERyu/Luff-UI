@@ -23,7 +23,12 @@ css({
     justifyContent: 'center',
     width: '1em',
     height: '1em',
-    color: (props) => props.color || 'inherit'
+    color: (props) => props.color || 'inherit',
+    '& > svg': {
+      width: '1em',
+      height: '1em',
+      fill: 'currentColor'
+    }
   }
 })
 </style>

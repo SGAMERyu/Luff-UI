@@ -4,22 +4,24 @@ export const avatarTokens = {
   size: {
     avatar: {
       ...generateThemeToSize([16, 24, 32, 40, 48])
-    },
-    avatarRound: {
-      ...generateThemeToSize([2, 4, 8, 16, 32])
     }
   },
   fontSize: {
-    avatarText: {
-      ...generateThemeToSize([12, 14, 16, 24, 32])
+    avatar: {
+      text: {
+        ...generateThemeToSize([12, 14, 16, 24, 32])
+      }
+    }
+  },
+  radii: {
+    avatar: {
+      circle: '9999px',
+      square: '4px'
+    }
+  },
+  borderWidth: {
+    avatar: {
+      outline: '1px'
     }
   }
-}
-
-export const avatarUtils = {
-  avatarSize: (value: string) => ({
-    width: `{size.avatar.${value}}`,
-    height: `{size.avatar.${value}}`,
-    fontSize: `{fontSize.avatarText.${value}}`
-  })
 }
