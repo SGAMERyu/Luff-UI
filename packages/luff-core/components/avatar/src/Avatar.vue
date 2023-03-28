@@ -63,13 +63,17 @@ css({
     },
     disabled: {
       true: {
-        '&:before': {
+        '&::before': {
           display: 'block',
           content: 'test',
           position: 'absolute',
           width: '100%',
           height: '100%',
-          background: '{color.neutral.500}'
+          background: '{color.neutral.500}',
+          opacity: 0.5
+        },
+        options: {
+          default: false
         }
       }
     }

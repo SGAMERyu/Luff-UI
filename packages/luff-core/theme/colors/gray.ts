@@ -1,2 +1,3 @@
 import { getColors } from 'theme-colors'
-export const gray = getColors('#2D3546')
+
+export const gray = getColors('#737373')

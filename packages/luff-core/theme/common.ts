@@ -1,5 +1,6 @@
 import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens } from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
+import { blue, red, gray, green, yellow, indigo } from './colors'
 
 const defaultTokens = {
   fontSize: {
@@ -32,13 +33,22 @@ const defaultColor = {
   white: '#ffffff',
   midOpacityWhite: 'rgba(255, 255, 255, 0.5)',
   black: '#000000',
+  // color
+  indigo,
+  yellow,
+  green,
+  blue,
+  red,
+  gray,
+  textDisabled: '#9DA7BE',
+  disabled: '#edf0f8',
   // brand
   primary: palette('blue'),
   danger: palette('red'),
   warning: palette('yellow'),
   success: palette('green'),
   info: palette('indigo'),
-  neutral: palette('neutral')
+  neutral: palette('gray')
 }
 
 export default {

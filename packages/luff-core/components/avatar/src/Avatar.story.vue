@@ -22,6 +22,9 @@
         <LuAvatar variant="filled" text="lu"></LuAvatar>
         <LuAvatar variant="outline" text="lu"></LuAvatar>
       </div>
+      <div class="demo-block">
+        <LuAvatar :disabled="true" text="lu"></LuAvatar>
+      </div>
     </Variant>
   </Story>
 </template>
