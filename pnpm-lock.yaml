@@ -97,11 +97,13 @@ importers:
 
   packages/luff-core:
     specifiers:
+      '@floating-ui/dom': ^1.2.5
       '@luff-ui/icon': workspace:1.0.0
       defu: ^6.1.2
       theme-colors: ^0.0.5
       vite: ^4.2.1
     dependencies:
+      '@floating-ui/dom': 1.2.5
       '@luff-ui/icon': link:../luff-icon
       defu: 6.1.2
       theme-colors: 0.0.5
@@ -848,6 +850,16 @@ packages:
     resolution: {integrity: sha512-JXdzbRiWclLVoD8sNUjR443VVlYqiYmDVT6rGUEIEHU5YJW0gaVZwV2xgM7D4arkvASqD0IlLUVjHiFuxaftRw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@floating-ui/core/1.2.5:
+    resolution: {integrity: sha512-qrcbyfnRVziRlB6IYwjCopYhO7Vud750JlJyuljruIXcPxr22y8zdckcJGsuOdnQ639uVD1tTXddrcH3t3QYIQ==}
+    dev: false
+
+  /@floating-ui/dom/1.2.5:
+    resolution: {integrity: sha512-+sAUfpQ3Frz+VCbPCqj+cZzvEESy3fjSeT/pDWkYCWOBXYNNKZfuVsHuv8/JO2zze8+Eb/Q7a6hZVgzS81fLbQ==}
+    dependencies:
+      '@floating-ui/core': 1.2.5
+    dev: false
 
   /@histoire/app/0.15.8_vite@4.2.1:
     resolution: {integrity: sha512-kVMqd07PS7RyI+XGQ2pMxXcj/UtsuHZc3nwNV8CfislUir9eK+itQBI3K8okqFt513tX85zUe82Dob2knrJ9NQ==}

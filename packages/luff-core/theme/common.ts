@@ -1,4 +1,4 @@
-import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens } from './tokens/'
+import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens, tooltipTokens } from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
 import { blue, red, gray, green, yellow, indigo } from './colors'
 
@@ -18,10 +18,12 @@ const defaultTokens = {
   radii: {
     ...badgeTokens.radii,
     ...chipTokens.radii,
-    ...avatarTokens.radii
+    ...avatarTokens.radii,
+    ...tooltipTokens.radii
   },
   space: {
-    ...chipTokens.space
+    ...chipTokens.space,
+    ...tooltipTokens.space
   },
   borderWidth: {
     ...avatarTokens.borderWidth
@@ -48,7 +50,8 @@ const defaultColor = {
   warning: palette('yellow'),
   success: palette('green'),
   info: palette('indigo'),
-  neutral: palette('gray')
+  neutral: palette('gray'),
+  ...tooltipTokens.colors
 }
 
 export default {

@@ -11,7 +11,7 @@ function createComponentSFC(name: string) {
       content: `<div>${componentName}</div>`
     },
     scriptSetup: {
-      content: `defineOptions({ name: Lu${componentName} })`
+      content: `defineOptions({ name: "Lu${componentName}" })`
     },
     styles: [
       {

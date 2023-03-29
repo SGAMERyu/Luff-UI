@@ -25,6 +25,9 @@
       <div class="demo-block">
         <LuAvatar :disabled="true" text="lu"></LuAvatar>
       </div>
+      <div class="demo-block">
+        
+      </div>
     </Variant>
   </Story>
 </template>

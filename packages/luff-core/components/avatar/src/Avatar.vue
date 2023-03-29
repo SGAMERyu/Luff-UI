@@ -65,12 +65,14 @@ css({
       true: {
         '&::before': {
           display: 'block',
-          content: 'test',
+          content: '',
           position: 'absolute',
           width: '100%',
           height: '100%',
           background: '{color.neutral.500}',
-          opacity: 0.5
+          opacity: 0.5,
+          borderRadius: 'inherit',
+          cursor: 'not-allowed'
         },
         options: {
           default: false
