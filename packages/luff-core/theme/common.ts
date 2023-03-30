@@ -23,7 +23,8 @@ const defaultTokens = {
   },
   space: {
     ...chipTokens.space,
-    ...tooltipTokens.space
+    ...tooltipTokens.space,
+    ...avatarTokens.space
   },
   borderWidth: {
     ...avatarTokens.borderWidth

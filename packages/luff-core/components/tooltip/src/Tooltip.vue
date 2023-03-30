@@ -53,8 +53,6 @@ css({
     '&__content': {
       position: 'absolute',
       width: 'max-content',
-      top: 0,
-      left: 0,
       color: '{color.tooltip.text}',
       background: '{color.tooltip.background}',
       padding: '{space.tooltip.padding}',

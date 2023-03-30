@@ -2,7 +2,7 @@ export const tooltipTokens = {
   colors: {
     tooltip: {
       background: {
-        initial: '{color.gray.400}'
+        initial: '{color.gray.700}'
       },
       text: {
         initial: '{color.white}'
@@ -11,7 +11,7 @@ export const tooltipTokens = {
   },
   space: {
     tooltip: {
-      padding: '4px'
+      padding: '8px'
     }
   },
   radii: {

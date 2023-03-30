@@ -1,8 +1,8 @@
 <template>
-  <component :is="as" class="lu-avatar">
-    <img v-if="src" :src="src" />
+  <component :is="as" class="lu-avatar" :aria-label="label" @click="onClick">
+    <img v-if="src && !isImageError" :src="src" :alt="alt" class="lu-avatar-img" @error="onError" />
     <span v-else-if="text">{{ text }}</span>
-    <span v-else class="lu-avatar__placeholder">
+    <span v-else class="lu-avatar-placeholder">
       <AvatarPlaceholderIcon />
     </span>
   </component>
@@ -16,7 +16,19 @@ defineOptions({
   name: 'LuAvatar'
 })
 
-defineProps({ ...avatarProps, ...variants })
+const props = defineProps({ ...avatarProps, ...variants })
+const [isImageError, setIsImageError] = useToggle(false)
+
+function onClick() {
+  const { href, target } = props
+  if (href) {
+    window.open(href, target || undefined)
+  }
+}
+
+function onError() {
+  setIsImageError(true)
+}
 </script>
 
 <style lang="ts">
@@ -90,7 +102,8 @@ css({
     width: (props) => `{size.avatar.${props.size}}`,
     height: (props) => `{size.avatar.${props.size}}`,
     fontSize: (props) => `{fontSize.avatar.text.${props.size}}`,
-    '&__placeholder': {
+    boxShadow: (props) => props.borderColor ? `0 0 0 {size.avatar.shadowSpread} ${props.borderColor}` : '',
+    '&-placeholder': {
       display: 'inline-flex',
       '& > svg': {
         maxWidth: '100%',
@@ -98,6 +111,11 @@ css({
         fill: 'currentColor'
       }
     },
+    '&-img': {
+      width: '100%',
+      height: '100%',
+      borderRadius: 'inherit'
+    }
     }
   },
 )
