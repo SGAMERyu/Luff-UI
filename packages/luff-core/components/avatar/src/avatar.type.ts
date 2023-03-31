@@ -1,6 +1,8 @@
 import { Component, ExtractPropTypes, PropType } from 'vue'
 import { Color, Variant, Size } from '~/types'
 import Avatar from './Avatar.vue'
+import AvatarItem from './AvatarItem.vue'
+import AvatarSkeleton from './AvatarSkeleton.vue'
 
 export type AvatarVariant = Variant | 'default'
 export type AvatarTarget = '_blank' | '_self' | '_top' | '_parent'
@@ -93,7 +95,31 @@ export const avatarItemProps = {
   }
 }
 
+export const avatarSkeletonProps = {
+  as: {
+    type: String,
+    default: 'div'
+  },
+  appearance: {
+    type: String as PropType<'circle' | 'square'>
+  },
+  color: {
+    type: String
+  },
+  size: {
+    type: String as PropType<Size>,
+    default: 'md'
+  },
+  weight: {
+    type: String as PropType<'normal' | 'strong'>,
+    default: 'normal'
+  }
+}
+
 export type AvatarProps = ExtractPropTypes<typeof avatarProps>
+export type AvatarItemProps = ExtractPropTypes<typeof avatarItemProps>
+export type AvatarSkeleton = ExtractPropTypes<typeof avatarSkeletonProps>
+
 export type AvatarInstance = InstanceType<typeof Avatar>
-export type AvatarItem = ExtractPropTypes<typeof avatarItemProps>
-export type AvatarItemInstance = InstanceType<typeof Avatar>
+export type AvatarItemInstance = InstanceType<typeof AvatarItem>
+export type AvatarSkeletonInstance = InstanceType<typeof AvatarSkeleton>

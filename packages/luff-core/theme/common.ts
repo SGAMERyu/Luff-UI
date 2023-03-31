@@ -28,6 +28,9 @@ const defaultTokens = {
   },
   borderWidth: {
     ...avatarTokens.borderWidth
+  },
+  opacity: {
+    ...avatarTokens.opacity
   }
 }
 

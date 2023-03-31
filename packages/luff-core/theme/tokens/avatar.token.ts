@@ -30,5 +30,11 @@ export const avatarTokens = {
     avatar: {
       outline: '1px'
     }
+  },
+  opacity: {
+    avatar: {
+      normal: 0.15,
+      strong: 0.3
+    }
   }
 }

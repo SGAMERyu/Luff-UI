@@ -41,6 +41,10 @@
       <div class="demo-block">
         <LuAvatar :src="testErrorSrc" alt="cotton.qi(online)" text="lu" />
       </div>
+      <div class="demo-block demo-opacity-block">
+        <LuAvatarSkeleton />
+        <LuAvatarSkeleton appearance="square" />
+      </div>
     </Variant>
   </Story>
 </template>
@@ -48,6 +52,7 @@
 <script lang="ts" setup>
 import LuAvatar from '../Avatar.vue'
 import LuTooltip from '~/components/tooltip'
+import LuAvatarSkeleton from '../AvatarSkeleton.vue'
 
 const testSrc =
   'https://images.generated.photos/UvsJo9W3Vwl2ohP4ybnwMQdreIrprQCnhcB-f9_j3Ko/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MDU0NjY3LmpwZw.jpg'
@@ -60,5 +65,15 @@ const testErrorSrc =
   display: flex;
   gap: 8px;
   margin-top: 16px;
+}
+
+.demo-opacity-block {
+  padding: 16px;
+  background-image: linear-gradient(45deg, #f7f8f9, #f9f9fa 25%, transparent 25%),
+    linear-gradient(135deg, #f7f8f9, #f9f9fa 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f7f8f9, #f9f9fa 75%),
+    linear-gradient(135deg, transparent 75%, #f7f8f9, #f9f9fa 75%);
+  background-size: 20px 20px;
+  background-position: 0px 0px, 10px 0px, 10px -10px, 0px 10px;
 }
 </style>
