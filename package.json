@@ -8,7 +8,7 @@
     "dev:component": "wireit",
     "play": "pnpm -C playground run dev",
     "play:component": "pnpm -C packages/luff-core run play",
-    "add-component": "esno scripts/add-component.ts",
+    "add:component": "esno scripts/add-component.ts",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
     "refresh:dep": "npx taze -r",
     "clear:dep": "npx npkill"

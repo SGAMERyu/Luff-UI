@@ -10,7 +10,8 @@ import {
   LuffBreadCrumbsItem,
   LuTooltip,
   LuffAvatarItem,
-  LuAvatarSkeleton
+  LuAvatarSkeleton,
+  LuAvatarGroup
 } from '~/components'
 import { createInstaller } from './utils'
 import type { Plugin } from 'vue'
@@ -29,7 +30,8 @@ const components: Plugin[] = [
   LuffBreadCrumbsItem,
   LuTooltip,
   LuffAvatarItem,
-  LuAvatarSkeleton
+  LuAvatarSkeleton,
+  LuAvatarGroup
 ]
 
 const installPieceUi = createInstaller(components)
