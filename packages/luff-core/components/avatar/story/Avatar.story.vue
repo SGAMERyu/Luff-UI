@@ -1,6 +1,6 @@
 <template>
   <Story
-    title="avatar"
+    title="Avatar"
     :layout="{
       type: 'grid',
       width: '500px',
@@ -50,9 +50,9 @@
 </template>
 
 <script lang="ts" setup>
-import LuAvatar from '../Avatar.vue'
+import LuAvatar from '../src/Avatar.vue'
 import LuTooltip from '~/components/tooltip'
-import LuAvatarSkeleton from '../AvatarSkeleton.vue'
+import LuAvatarSkeleton from '../src/AvatarSkeleton.vue'
 
 const testSrc =
   'https://images.generated.photos/UvsJo9W3Vwl2ohP4ybnwMQdreIrprQCnhcB-f9_j3Ko/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MDU0NjY3LmpwZw.jpg'

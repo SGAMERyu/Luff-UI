@@ -1,6 +1,6 @@
 <template>
   <Story
-    title="tooltip"
+    title="Tooltip"
     :layout="{
       type: 'grid',
       width: '500px',
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import LuTooltip from './Tooltip.vue'
+import LuTooltip from '../src/Tooltip.vue'
 import LuButton from '~/components/button'
 </script>
 

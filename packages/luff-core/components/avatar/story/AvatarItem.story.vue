@@ -1,5 +1,6 @@
 <template>
   <Story
+    title="AvatarItem"
     :layout="{
       type: 'grid',
       width: '500px',
@@ -40,8 +41,8 @@
 </template>
 
 <script lang="ts" setup>
-import Avatar from '../Avatar.vue'
-import AvatarItem from '../AvatarItem.vue'
+import Avatar from '../src/Avatar.vue'
+import AvatarItem from '../src/AvatarItem.vue'
 AvatarItem
 
 const testSrc =

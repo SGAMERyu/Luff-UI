@@ -103,6 +103,8 @@ css({
     height: (props) => `{size.avatar.${props.size}}`,
     fontSize: (props) => `{fontSize.avatar.text.${props.size}}`,
     boxShadow: (props) => props.borderColor ? `0 0 0 {size.avatar.shadowSpread} ${props.borderColor}` : '',
+    boxSizing: 'border-box',
+    cursor: 'pointer',
     '&-placeholder': {
       display: 'inline-flex',
       '& > svg': {

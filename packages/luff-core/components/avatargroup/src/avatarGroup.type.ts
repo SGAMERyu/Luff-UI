@@ -1,24 +1,25 @@
 import { ExtractPropTypes, PropType } from 'vue'
 import AvatarGroup from './AvatarGroup.vue'
 import { AvatarProps } from '~/components/avatar/src/avatar.type'
-import { Size } from '~/types'
 import { Placement } from '@floating-ui/dom'
+
+export type AvatarGroupItemProps = AvatarProps & {
+  name: string
+}
 
 export const avatarGroupProps = {
   data: {
-    type: Array as PropType<AvatarProps[]>,
-    default: () => []
+    type: Array as PropType<Partial<AvatarGroupItemProps>[]>,
+    default: () => [],
+    validator: (data: unknown) => Array.isArray(data)
   },
   appearance: {
-    type: String as PropType<'grid' | 'stack'>
+    type: String as PropType<'grid' | 'stack'>,
+    default: 'stack'
   },
   maxCount: {
     type: Number,
     default: 5
-  },
-  size: {
-    type: Number as PropType<Size>,
-    default: 'md'
   },
   borderColor: {
     type: String
@@ -26,9 +27,9 @@ export const avatarGroupProps = {
   label: {
     type: String
   },
+  // todo: dropdown 组件完成后，进行显示
   tooltipPosition: {
     type: String as PropType<Placement>,
-    required: true,
     default: 'top'
   },
   isTooltipDisabled: {
