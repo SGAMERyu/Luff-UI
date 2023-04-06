@@ -1,29 +1,40 @@
-import { PropType, ExtractPropTypes, Component } from 'vue'
-import { Color } from '~/types'
+import { PropType, ExtractPropTypes } from 'vue'
+import { Color, Variant } from '~/types'
 import Badge from './Badge.vue'
 
-export type BadgePlacement = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'
+export type BadgePlacements = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
 
 export const badgeProps = {
-  content: {
-    type: [String, Number] as PropType<string | Component | number>
+  as: {
+    type: String,
+    default: 'div'
   },
   color: {
     type: String as PropType<Color>,
     default: 'primary'
   },
-  placement: {
-    type: String as PropType<BadgePlacement>,
-    require: true,
-    default: 'top-right'
+  max: {
+    type: [Number, Boolean] as PropType<boolean | number>,
+    default: false
   },
-  size: {
-    type: String as PropType<'default' | 'sm'>,
-    default: 'default'
+  variants: {
+    type: String as PropType<Variant>
+  },
+  count: {
+    type: Number,
+    require: true
   },
   dot: {
     type: Boolean,
     default: false
+  },
+  placement: {
+    type: String as PropType<BadgePlacements>,
+    default: 'top-right'
+  },
+  borderWeight: {
+    type: Number,
+    default: 1
   }
 }
 

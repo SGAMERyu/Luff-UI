@@ -1,81 +1,18 @@
 <template>
-  <div class="lu-badge">
+  <component :is="as">
     <slot />
-    <span class="lu-badge__dot">
-      <slot name="content">{{ content }}</slot>
-    </span>
-  </div>
+  </component>
 </template>
 
 <script lang="ts" setup>
-import { BadgePlacement, badgeProps } from './badge.type'
-import { variantColor } from '~/utils'
-
+import { badgeProps } from './badge.type'
 defineOptions({
   name: 'LuBadge'
 })
 
-const props = defineProps({ ...badgeProps, ...variants })
-
-function createDotPlacement(placement: BadgePlacement) {
-  if (placement === 'bottom-left') {
-    return 'calc(100% - 12px) calc(100% - 12px) auto auto'
-  } else if (placement === 'bottom-right') {
-    return 'calc(100% - 12px) auto auto calc(100% - 12px)'
-  } else if (placement === 'top-left') {
-    return 'auto calc(100% - 12px) calc(100% - 12px) auto'
-  } else if (placement === 'top-right') {
-    return 'auto auto calc(100% - 12px) calc(100% - 12px)'
-  }
-}
+defineProps({ ...badgeProps })
 </script>
 
-<style lang="ts">
-css({
-  '.lu-badge': {
-    position: 'relative',
-    '&__dot': {
-      position: 'absolute',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '{color.white}',
-      border: '2px solid {color.white}',
-      borderRadius: '{radii.badge}',
-      fontSize: '{fontSize.xs}',
-      padding: '{size.badge.dotSpace}',
-      backgroundColor: (props) => variantColor(props.color),
-      inset: (props) => createDotPlacement(props.placement)
-    }
-  },
-  variants: {
-    size: {
-      sm: {
-        '.lu-badge__dot': {
-          badgeSize: 'sm',
-        }
-      },
-      default: {
-        '.lu-badge__dot': {
-          badgeSize: 'default',
-        }
-      },
-      options: {
-        default: 'default'
-      }
-    },
-    dot: {
-      true: {
-        '.lu-badge__dot': {
-          minWidth: '{size.badge.dotSize}',
-          height: '{size.badge.dotSize}',
-          fontSize: '0px',
-        }
-      },
-      options: {
-        default: false
-      }
-    }
-  }
-})
-</style>
+<script lang="ts"></script>
+
+<style lang="ts"></style>
