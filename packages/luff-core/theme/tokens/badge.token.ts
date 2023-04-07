@@ -1,20 +1,17 @@
 export const badgeTokens = {
   size: {
     badge: {
-      dotSize: '8px',
-      default: '20px',
-      sm: '12px',
-      dotSpace: '0 4px'
-    },
+      dot: '6px',
+      default: '16px'
+    }
   },
   radii: {
     badge: '999px'
+  },
+  fontSize: {
+    badge: '14px'
+  },
+  space: {
+    badge: '0 8px'
   }
-}
-
-export const badgeUtils = {
-  badgeSize: (value: string) => ({
-    minWidth: `{size.badge.${value}}`,
-    height: `{size.badge.${value}}`
-  }),
 }

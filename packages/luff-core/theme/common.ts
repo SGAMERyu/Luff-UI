@@ -6,7 +6,8 @@ const defaultTokens = {
   fontSize: {
     ...generateThemeToSize([12, 14, 16, 18, 20]),
     ...buttonTokens.fontSize,
-    ...avatarTokens.fontSize
+    ...avatarTokens.fontSize,
+    ...badgeTokens.fontSize
   },
   size: {
     ...buttonTokens.size,
@@ -24,7 +25,8 @@ const defaultTokens = {
   space: {
     ...chipTokens.space,
     ...tooltipTokens.space,
-    ...avatarTokens.space
+    ...avatarTokens.space,
+    ...badgeTokens.space
   },
   borderWidth: {
     ...avatarTokens.borderWidth
