@@ -84,7 +84,6 @@ css({
     alignItems: 'flex-start',
     padding: '{size.alertSpace}',
     boxSizing: 'border-box',
-    color: '{color.black}',
     overflow: 'hidden',
     borderRadius: (props) => `{size.alertRound.${props.radius}}`,
     '&__content': {
