@@ -11,6 +11,7 @@ function createComponentSFC(name: string) {
       content: `<div>${componentName}</div>`
     },
     scriptSetup: {
+      lang: 'ts',
       content: `defineOptions({ name: "Lu${componentName}" })`
     },
     styles: [
@@ -21,6 +22,26 @@ function createComponentSFC(name: string) {
     ]
   })
 
+  return sfc.toString()
+}
+
+function createComponentStory(name: string) {
+  const componentName = upperFirst(name)
+  const sfc = createVueSFC({
+    template: {
+      content: `<Story 
+        title="${componentName}" 
+        :layout="{
+          type: 'grid'
+        }">
+          <Variants></Variants>
+      </Story>`
+    },
+    scriptSetup: {
+      lang: 'ts',
+      content: `import Lu${componentName} from './src/${name}.vue'`
+    }
+  })
   return sfc.toString()
 }
 
@@ -52,13 +73,16 @@ function createComponentType(name: string) {
 
 async function generateTemplateFromComponentDirPath(componentDirPath: string, componentName: string) {
   await ensureDir(path.resolve(componentDirPath, 'src'))
+  await ensureDir(path.resolve(componentDirPath, 'story'))
   const sfcTemplatePath = path.resolve(componentDirPath, `src/${upperFirst(componentName)}.vue`)
   const mainTemplatePath = path.resolve(componentDirPath, 'index.ts')
   const typeTemplatePath = path.resolve(componentDirPath, `src/${componentName}.type.ts`)
+  const storyTemplatePath = path.resolve(componentDirPath, `story/${componentName}.story.vue`)
 
   await writeFile(mainTemplatePath, createMain(componentName))
   await writeFile(sfcTemplatePath, createComponentSFC(componentName))
   await writeFile(typeTemplatePath, createComponentType(componentName))
+  await writeFile(storyTemplatePath, createComponentStory(componentName))
 }
 
 async function generateComponent() {

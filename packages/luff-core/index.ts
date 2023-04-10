@@ -11,7 +11,9 @@ import {
   LuTooltip,
   LuffAvatarItem,
   LuAvatarSkeleton,
-  LuAvatarGroup
+  LuAvatarGroup,
+  LuOverlay,
+  LuAspectRatio
 } from '~/components'
 import { createInstaller } from './utils'
 import type { Plugin } from 'vue'
@@ -31,7 +33,9 @@ const components: Plugin[] = [
   LuTooltip,
   LuffAvatarItem,
   LuAvatarSkeleton,
-  LuAvatarGroup
+  LuAvatarGroup,
+  LuOverlay,
+  LuAspectRatio
 ]
 
 const installPieceUi = createInstaller(components)
