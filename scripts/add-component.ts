@@ -34,7 +34,7 @@ function createComponentStory(name: string) {
         :layout="{
           type: 'grid'
         }">
-          <Variants></Variants>
+          <Variant></Variant>
       </Story>`
     },
     scriptSetup: {

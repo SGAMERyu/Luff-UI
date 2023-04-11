@@ -13,7 +13,9 @@ import {
   LuAvatarSkeleton,
   LuAvatarGroup,
   LuOverlay,
-  LuAspectRatio
+  LuAspectRatio,
+  LuGrid,
+  LuCell,
 } from '~/components'
 import { createInstaller } from './utils'
 import type { Plugin } from 'vue'
@@ -35,7 +37,9 @@ const components: Plugin[] = [
   LuAvatarSkeleton,
   LuAvatarGroup,
   LuOverlay,
-  LuAspectRatio
+  LuAspectRatio,
+  LuGrid,
+  LuCell
 ]
 
 const installPieceUi = createInstaller(components)
