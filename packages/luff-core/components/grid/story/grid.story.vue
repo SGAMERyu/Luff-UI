@@ -3,7 +3,7 @@
     title="Grid"
     :layout="{
       type: 'grid',
-      width: '500px'
+      width: '1200px'
     }"
   >
     <Variant title="base">
@@ -16,6 +16,37 @@
         </LuCell>
         <LuCell>
           <div class="content">width-3</div>
+        </LuCell>
+      </LuGrid>
+    </Variant>
+    <Variant>
+      <LuGrid gap="8px" :columns="24">
+        <LuCell :column="16">
+          <div class="content">width-16</div>
+        </LuCell>
+        <LuCell :column="8">
+          <div class="content">width-8</div>
+        </LuCell>
+      </LuGrid>
+      <LuGrid gap="8px" :columns="24" style="margin-top: 16px">
+        <LuCell :column="8">
+          <div class="content">width-8</div>
+        </LuCell>
+        <LuCell :column="8">
+          <div class="content">width-8</div>
+        </LuCell>
+        <LuCell :column="8">
+          <div class="content">width-8</div>
+        </LuCell>
+      </LuGrid>
+    </Variant>
+    <Variant>
+      <LuGrid gap="8px" columns="300px repeat(2, 1fr)">
+        <LuCell :column="1" :row="2">
+          <div class="content">width-1 height-2</div>
+        </LuCell>
+        <LuCell v-for="item in 4" :key="item">
+          <div class="content">width-1</div>
         </LuCell>
       </LuGrid>
     </Variant>
@@ -33,6 +64,7 @@ import LuCell from '../../cell/src/Cell.vue'
   justify-content: center;
   background: #3277ff;
   color: white;
-  height: 46px;
+  min-height: 46px;
+  height: 100%;
 }
 </style>

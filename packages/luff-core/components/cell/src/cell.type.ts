@@ -5,6 +5,14 @@ export const cellProps = {
   as: {
     type: String,
     default: 'div'
+  },
+  row: {
+    type: Number,
+    default: 1
+  },
+  column: {
+    type: Number,
+    default: 1
   }
 }
 

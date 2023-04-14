@@ -19,7 +19,8 @@ css({'.lu-grid': {
   gap: (props) => Array.isArray(props.gap) ? props.gap.join(' ') : props.gap,
   gridTemplateColumns: (props) => isNumber(props.columns) ? `repeat(${props.columns}, 1fr)` : props.columns,
   gridTemplateRows: (props) => isNumber(props.rows) ? `repeat(${props.rows}, 1fr)` : props.rows,
-  justifyContent: (props) => props.justify,
+  justifyItems: (props) => props.justify,
   alignItems: (props) => props.align,
 }})
 </style>
+<!--  -->
