@@ -16,6 +16,7 @@ import {
   LuAspectRatio,
   LuGrid,
   LuCell,
+  LuFlex,
 } from '~/components'
 import { createInstaller } from './utils'
 import type { Plugin } from 'vue'
@@ -39,7 +40,8 @@ const components: Plugin[] = [
   LuOverlay,
   LuAspectRatio,
   LuGrid,
-  LuCell
+  LuCell,
+  LuFlex
 ]
 
 const installPieceUi = createInstaller(components)
