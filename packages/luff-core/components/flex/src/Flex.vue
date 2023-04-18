@@ -1,5 +1,7 @@
 <template>
-  <component :is="as"></component>
+  <component :is="as" class="lu-flex">
+    <slot></slot>
+  </component>
 </template>
 
 <script lang="ts" setup>
