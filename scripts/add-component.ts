@@ -39,7 +39,7 @@ function createComponentStory(name: string) {
     },
     scriptSetup: {
       lang: 'ts',
-      content: `import Lu${componentName} from './src/${name}.vue'`
+      content: `import Lu${componentName} from '../src/${upperFirst(name)}.vue'`
     }
   })
   return sfc.toString()

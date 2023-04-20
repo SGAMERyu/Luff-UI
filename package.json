@@ -5,7 +5,6 @@
     "commit": "czg",
     "build": "wireit",
     "build:icon": "wireit",
-    "dev": "",
     "play": "pnpm -C playground run dev",
     "play:component": "pnpm -C packages/luff-core run play",
     "add:component": "esno scripts/add-component.ts",
