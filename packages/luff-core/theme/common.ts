@@ -1,4 +1,4 @@
-import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens, tooltipTokens } from './tokens/'
+import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens, tooltipTokens, dividerTokens } from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
 import { blue, red, gray, green, yellow, indigo } from './colors'
 
@@ -26,7 +26,8 @@ const defaultTokens = {
     ...chipTokens.space,
     ...tooltipTokens.space,
     ...avatarTokens.space,
-    ...badgeTokens.space
+    ...badgeTokens.space,
+    ...dividerTokens.space
   },
   borderWidth: {
     ...avatarTokens.borderWidth
