@@ -5,11 +5,10 @@
 </template>
 <script lang="ts" setup>
 import { dividerProps } from './divider.type'
-  defineOptions({ name: "LuDivider" })
 
-  defineProps({ ...dividerProps, ...variants })
+defineOptions({ name: "LuDivider" })
 
-  const 
+defineProps({ ...dividerProps, ...variants })
 </script>
 
 <style lang="ts">

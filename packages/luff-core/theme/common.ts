@@ -1,4 +1,4 @@
-import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens, tooltipTokens, dividerTokens } from './tokens/'
+import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens, tooltipTokens, dividerTokens, headingTokens } from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
 import { blue, red, gray, green, yellow, indigo } from './colors'
 
@@ -7,7 +7,8 @@ const defaultTokens = {
     ...generateThemeToSize([12, 14, 16, 18, 20]),
     ...buttonTokens.fontSize,
     ...avatarTokens.fontSize,
-    ...badgeTokens.fontSize
+    ...badgeTokens.fontSize,
+    ...headingTokens.fontSize,
   },
   size: {
     ...buttonTokens.size,
