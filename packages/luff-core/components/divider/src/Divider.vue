@@ -68,6 +68,9 @@ css({
           borderTop: (props) => `1px ${props.variant} ${props.color}`,
           marginRight: '8px',
         },
+      },
+      options: {
+        default: 'center'
       }
     }
   },
