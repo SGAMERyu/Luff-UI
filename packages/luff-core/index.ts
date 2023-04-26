@@ -18,7 +18,11 @@ import {
   LuCell,
   LuFlex,
   LuGroup,
-  LuStack
+  LuStack,
+  LuDivider,
+  LuHeading,
+  LuMark,
+  LuText
 } from '~/components'
 import { createInstaller } from './utils'
 import type { Plugin } from 'vue'
@@ -45,7 +49,11 @@ const components: Plugin[] = [
   LuCell,
   LuFlex,
   LuGroup,
-  LuStack
+  LuStack,
+  LuDivider,
+  LuHeading,
+  LuMark,
+  LuText
 ]
 
 const installPieceUi = createInstaller(components)

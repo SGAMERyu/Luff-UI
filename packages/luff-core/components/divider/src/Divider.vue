@@ -76,7 +76,7 @@ css({
   },
   '.lu-divider-label': {
     display: 'flex',
-    alignItems: 'center';
+    alignItems: 'center'
   }
 })
 </style>
