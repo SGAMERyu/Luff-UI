@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { headingProps } from './heading.type'
-import { variantColor } from '~/utils'
+import { getColor } from '~/utils'
 
 defineOptions({ name: "LuHeading" })
 
@@ -29,7 +29,7 @@ css({
       fontSize: (props) => props.size || `{fontSize.heading.level${props.level}}`,
       fontWeight: (props) => props.weight,
       fontStyle: (props) => props.italic ? 'italic' : 'normal',
-      color: (props) => variantColor(props.color, 500),
+      color: (props) => getColor(props.color, 500),
   }
 })
 </style>

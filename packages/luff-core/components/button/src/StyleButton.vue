@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { buttonStyleProps } from './button.type'
-import { variantColor, variantBorderColor } from '~/utils'
+import { getColor, getBorderColor } from '~/utils'
 
 defineOptions({
     name: 'LuStyleButton'
@@ -22,45 +22,45 @@ css({
       filled: {
         '&': {
           color: '{color.white}',
-          backgroundColor: (props) => variantColor(props.color)
+          backgroundColor: (props) => getColor(props.color)
         },
         '&:hover': {
-          backgroundColor: (props) => variantColor(props.color, 600)
+          backgroundColor: (props) => getColor(props.color, 600)
         }
       },
       outline: {
         '&': {
-          color: (props) => variantColor(props.color),
-          border: (props) => variantBorderColor(props.color),
+          color: (props) => getColor(props.color),
+          border: (props) => getBorderColor(props.color),
           backgroundColor: 'transparent'
         },
         '&:hover': {
-          backgroundColor: (props) => variantColor(props.color),
+          backgroundColor: (props) => getColor(props.color),
           color: '{color.white}'
         }
       },
       light: {
         '&': {
-          color: (props) => variantColor(props.color),
-          backgroundColor: (props) => variantColor(props.color, 100),
+          color: (props) => getColor(props.color),
+          backgroundColor: (props) => getColor(props.color, 100),
         },
         '&:hover': {
-          backgroundColor: (props) => variantColor(props.color, 200),
+          backgroundColor: (props) => getColor(props.color, 200),
         }
       },
       white: {
         '&': {
           backgroundColor: '{color.white}',
-          color: (props) => variantColor(props.color, 500)
+          color: (props) => getColor(props.color, 500)
         }
       },
       subtle: {
         '&': {
-          color: (props) => variantColor(props.color),
+          color: (props) => getColor(props.color),
           backgroundColor: 'transparent'
         },
         '&:hover': {
-          backgroundColor: (props) => variantColor(props.color, 100)
+          backgroundColor: (props) => getColor(props.color, 100)
         }
       },
       default: {

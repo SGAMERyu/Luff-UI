@@ -28,7 +28,7 @@ import { alertProps } from './alert.type'
 import { LuffBalancer } from '~/components/balancer'
 import { LuffIcon } from '~/components/icon'
 import { LuCloseFill } from '@luff-ui/icon'
-import { variantColor, variantBorderColor } from '~/utils'
+import { getColor, getBorderColor } from '~/utils'
 
 defineOptions({
   name: 'LuAlert'
@@ -43,7 +43,7 @@ const _value = useVModel(props, 'modelValue', emits)
 
 const closeIconColor = computed(() => {
   const { variant, color } = props
-  if (variant !== 'filled') return variantColor(color)
+  if (variant !== 'filled') return getColor(color)
   return '{color.white}'
 })
 
@@ -59,19 +59,19 @@ css({
       filled: {
         '&': {
           color: '{color.white}',
-          backgroundColor: (props) => variantColor(props.color)
+          backgroundColor: (props) => getColor(props.color)
         }
       },
       outline: {
         '&': {
-          color: (props) => variantColor(props.color),
-          border: (props) => variantBorderColor(props.color)
+          color: (props) => getColor(props.color),
+          border: (props) => getBorderColor(props.color)
         }
       },
       light: {
         '&': {
-          color: (props) => variantColor(props.color),
-          backgroundColor: (props) => variantColor(props.color, 100),
+          color: (props) => getColor(props.color),
+          backgroundColor: (props) => getColor(props.color, 100),
         }
       },
       options: {

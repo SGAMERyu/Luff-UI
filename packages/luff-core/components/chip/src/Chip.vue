@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { chipProps } from './Chip.type'
 import LuffIcon from '~/components/icon'
-import { variantBorderColor, variantColor } from '~/utils'
+import { getBorderColor, getColor } from '~/utils'
 
 defineOptions({
   name: 'LuChip'
@@ -54,15 +54,15 @@ css({
     variant: {
       outline: {
         '&': {
-          color: (props) =>  props.checked ? '{color.white}' : variantColor(props.color),
-          border: (props) => variantBorderColor(props.color),
-          backgroundColor: (props) => props.checked ? variantColor(props.color) : 'transparent'
+          color: (props) =>  props.checked ? '{color.white}' : getColor(props.color),
+          border: (props) => getBorderColor(props.color),
+          backgroundColor: (props) => props.checked ? getColor(props.color) : 'transparent'
         },
       },
       light: {
         '&': {
-          color: (props) => props.checked ? '{color.white}' : variantColor(props.color),
-          backgroundColor: (props) => variantColor(props.color, props.checked ? 500 : 100)
+          color: (props) => props.checked ? '{color.white}' : getColor(props.color),
+          backgroundColor: (props) => getColor(props.color, props.checked ? 500 : 100)
         },
       },
       options: {
