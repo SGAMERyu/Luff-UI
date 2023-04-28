@@ -10,12 +10,16 @@ export const markProps = {
     default: 'span' 
   },
   color: {
-    type: String,
+    type: String as PropType<Color>,
     default: '{color.yellow.500}'
   },
   variant: {
     type: String as PropType<MarkVariant>,
     default: 'background',
+  },
+  markStyle: {
+    type: Object,
+    default: () => ({})
   }
 }
 

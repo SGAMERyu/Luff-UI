@@ -1,6 +1,6 @@
-export const linkTokens = {
+export const markTokens = {
   space: {
-    link: {
+    mark: {
       padding: '1px 4px'
     }
   }

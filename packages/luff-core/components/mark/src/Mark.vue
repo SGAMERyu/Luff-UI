@@ -1,11 +1,12 @@
 <template>
-  <component :is="as">
+  <component :is="as" class="lu-mark" :style="markStyle">
     <slot></slot>
   </component>
 </template>
 
 <script lang="ts" setup>
 import { markProps } from './mark.type'
+import { getColor } from '~/utils'
 
 defineOptions({ name: "LuMark" })
 defineProps({ ...markProps, ...variants })
@@ -17,17 +18,17 @@ css({
     variant: {
       'background': {
         '&': {
-          backgroundColor: (props) => props.color
+          backgroundColor: (props) => getColor(props.color)
         }
       },
       'border': {
         '&': {
-          border: (props) => `1px solid ${props.color}`
+          border: (props) => `1px solid ${getColor(props.color)}`
         }
       },
       'underline': {
         '&': {
-          textDecoration: (props) => `underline ${props.color}`
+          textDecoration: (props) => `underline ${getColor(props.color)}`
         }
       },
       options: {
@@ -35,5 +36,8 @@ css({
       }
     }
   },
+  'lu-mark': {
+    padding: '{space.mark.padding}'
+  }
 })
 </style>
