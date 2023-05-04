@@ -108,10 +108,10 @@ css({
   },
   '.lu-btn': {
     '&-icon__left': {
-      marginRight: '{size.btnSpace.leftIcon}',
+      marginRight: '{space.btn.leftIcon}',
     },
     '&-icon__right': {
-      marginLeft: '{size.btnSpace.rightIcon}'
+      marginLeft: '{space.btn.rightIcon}'
     },
     '& .is-loading': {
       'animation': 'loadingRotate 2s linear infinite'

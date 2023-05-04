@@ -1,4 +1,4 @@
-import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens, tooltipTokens, dividerTokens, headingTokens, linkTokens, markTokens } from './tokens/'
+import { buttonTokens, alertTokens, avatarTokens, badgeTokens, chipTokens, tooltipTokens, dividerTokens, headingTokens, linkTokens, markTokens, imageTokens, loaderTokens } from './tokens/'
 import { generateThemeToSize, palette } from '../utils'
 import { blue, red, gray, green, yellow, indigo } from './colors'
 
@@ -9,21 +9,26 @@ const defaultTokens = {
     ...avatarTokens.fontSize,
     ...badgeTokens.fontSize,
     ...headingTokens.fontSize,
+    ...imageTokens.fontSize
   },
   size: {
     ...buttonTokens.size,
     ...alertTokens.size,
     ...avatarTokens.size,
     ...badgeTokens.size,
-    ...chipTokens.size
+    ...chipTokens.size,
+    ...loaderTokens.size,
+    ...imageTokens.size,
   },
   radii: {
     ...badgeTokens.radii,
     ...chipTokens.radii,
     ...avatarTokens.radii,
-    ...tooltipTokens.radii
+    ...tooltipTokens.radii,
+    ...buttonTokens.radii
   },
   space: {
+    ...buttonTokens.radii,
     ...chipTokens.space,
     ...tooltipTokens.space,
     ...avatarTokens.space,
@@ -61,7 +66,8 @@ const defaultColor = {
   success: palette('green'),
   info: palette('indigo'),
   neutral: palette('gray'),
-  ...tooltipTokens.colors
+  ...tooltipTokens.colors,
+  ...imageTokens.colors
 }
 
 export default {

@@ -17,7 +17,7 @@ export function getBorderColor(color: Color, value = 500) {
   return `1px solid ${color}`
 }
 
-export function getSize(size: Size | string) {
+export function getFontSize(size: Size | string) {
   if (sizes.includes(size)) {
     return `{fontSize.${size}}`
   }

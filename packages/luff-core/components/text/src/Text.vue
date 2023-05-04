@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { textProps } from './text.type'
-import { getSize, getGradient } from '~/utils'
+import { getFontSize, getGradient } from '~/utils'
 
 defineOptions({ name: "LuText" })
 defineProps({ ...textProps, ...variants })
@@ -52,7 +52,7 @@ css({
     }
   },
   '.lu-text': {
-    fontSize: (props) => getSize(props.size),
+    fontSize: (props) => getFontSize(props.size),
     fontWeight: (props) => props.weight,
     textAlign: (props) => props.align
   }

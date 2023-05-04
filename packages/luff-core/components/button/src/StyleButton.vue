@@ -77,36 +77,6 @@ css({
         default: 'filled'
       }
     },
-    size: {
-      xs: {
-        '&': {
-          btnSize: 'xs'
-        }
-      },
-      sm: {
-        '&': {
-          btnSize: 'sm'
-        }
-      },
-      md: {
-        '&': {
-          btnSize: 'md'
-        }
-      },
-      lg: {
-        '&': {
-          btnSize: 'lg'
-        }
-      },
-      xl: {
-        '&': {
-          btnSize: 'xl'
-        }
-      },
-      options: {
-        default: 'sm'
-      }
-    },
     fullWidth: {
       true: {
         width: '100%'
@@ -124,7 +94,11 @@ css({
     border: 'none',
     cursor: 'pointer',
     position: 'relative',
-    borderRadius: (props) => `{size.btnRound.${props.radius}}`,
+    height: (props) => `{size.btn.${props.size}}`,
+    paddingLeft: (props) => `{space.btn.${props.size}}`,
+    paddingRight: (props) => `{space.btn.${props.size}}`,
+    fontSize: (props) => `{fontSize.btn.${props.size}}`,
+    borderRadius: (props) => `{radii.btn.${props.radius}}`,
   },
 })
 </style>
