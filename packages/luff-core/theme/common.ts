@@ -28,7 +28,7 @@ const defaultTokens = {
     ...buttonTokens.radii
   },
   space: {
-    ...buttonTokens.radii,
+    ...buttonTokens.space,
     ...chipTokens.space,
     ...tooltipTokens.space,
     ...avatarTokens.space,

@@ -6,7 +6,6 @@ import Vue from '@vitejs/plugin-vue'
 import Dts from 'vite-plugin-dts'
 import AutoImport from 'unplugin-auto-import/vite'
 import Pinceau from 'pinceau/vite'
-import DefineOptions from 'unplugin-vue-define-options/vite'
 import Inspect from 'vite-plugin-inspect'
 
 export default defineConfig({
@@ -20,7 +19,6 @@ export default defineConfig({
       debug: true
     }),
     // Dts(),
-    DefineOptions(),
     AutoImport({
       dts: true,
       imports: ['vue', '@vueuse/core'],
