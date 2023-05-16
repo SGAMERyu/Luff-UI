@@ -1,24 +1,36 @@
 <template>
   <div class="lu-image-root">
-    <img v-if="src" v-bind="$attrs" class="lu-image" :src="src" :alt="alt" @error="onImageError" @load="onImageLoad" />
-    
+    <img
+      v-if="src"
+      v-bind="$attrs"
+      class="lu-image"
+      :src="src"
+      :alt="alt"
+      @error="onImageError"
+      @load="onImageLoad"
+      @click="onPreviewClick"
+    />
+
     <template v-if="src">
       <slot v-if="$slots.caption" name="caption" />
       <span v-else-if="caption" class="lu-image-caption">
         {{ caption }}
       </span>
     </template>
-  
+
     <template v-if="showPlaceholder || !src">
-      <slot  v-if="$slots.placeholder" name="placeholder"/>
+      <slot v-if="$slots.placeholder" name="placeholder" />
       <div v-else class="lu-image-placeholder">
         <ImagePlaceholder />
       </div>
     </template>
-  
+
     <div v-if="showLoader && !isImageLoad" class="lu-image-loader">
       <LuLoader />
     </div>
+    <template v-if="hasPreviewer">
+      <ImageViewer v-model:visible="showViewer" :src="src"></ImageViewer>
+    </template>
   </div>
 </template>
 
@@ -26,18 +38,19 @@
 import { imageProps } from './image.type'
 import { LuLoader } from '~/components/loader'
 import ImagePlaceholder from './ImagePlaceholder.vue'
+import ImageViewer from './ImageViewer.vue'
 
-defineOptions({ name: "LuImage" })
-defineProps({ ...imageProps })
+defineOptions({ name: 'LuImage' })
+const props = defineProps({ ...imageProps })
 
 const { showPlaceholder, isImageLoad, onImageError, onImageLoad } = useImage()
+const { hasPreviewer, showViewer, onPreviewClick } = useImagePreviewer(isImageLoad)
 
 function useImage() {
   const [showPlaceholder, toggleShowPlaceholder] = useToggle(false)
   const [isImageLoad, toggleIsImageLoad] = useToggle(false)
 
   function onImageLoad() {
-    console.log(1)
     toggleIsImageLoad()
   }
 
@@ -45,7 +58,22 @@ function useImage() {
     toggleShowPlaceholder()
   }
 
-  return { showPlaceholder, isImageLoad,  toggleShowPlaceholder, onImageError, onImageLoad }
+  return { showPlaceholder, isImageLoad, toggleShowPlaceholder, onImageError, onImageLoad }
+}
+
+function useImagePreviewer(isImageLoad: Ref<boolean>) {
+  const [showViewer, toggleViewerVisible] = useToggle(false)
+
+  const hasPreviewer = computed(() => {
+    return !!props.preview
+  })
+
+  function onPreviewClick() {
+    if (!isImageLoad.value) return
+    toggleViewerVisible()
+  }
+
+  return { showViewer, hasPreviewer, onPreviewClick }
 }
 </script>
 

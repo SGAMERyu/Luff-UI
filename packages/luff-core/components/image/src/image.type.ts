@@ -3,14 +3,18 @@ import { cssProp } from 'pinceau/runtime'
 import Image from './Image.vue'
 
 export const imageProps = {
+  preview: {
+    type: Boolean,
+    default: false
+  },
   src: {
     type: String
   },
   alt: {
-    type: String,
+    type: String
   },
   caption: {
-    type: String,
+    type: String
   },
   width: {
     type: String,
@@ -30,7 +34,25 @@ export const imageProps = {
     default: false
   }
 }
-  
+
+export const imageViewerProps = {
+  src: {
+    type: String
+  }
+}
+
+export type ImageViewerProps = ExtractPropTypes<typeof imageViewerProps>
 export type ImageProps = ExtractPropTypes<typeof imageProps>
-export type ImageInstance =  InstanceType<typeof Image>
-  
+export type ImageInstance = InstanceType<typeof Image>
+
+export interface NatureSize {
+  width: string
+  height: string
+}
+
+export enum ToolActionEnum {
+  ZOOM_IN = 'zoomIn',
+  ZOOM_OUT = 'zoomOut',
+  TURN_LEFT = 'turnLeft',
+  TURN_RIGHT = 'turnRight'
+}

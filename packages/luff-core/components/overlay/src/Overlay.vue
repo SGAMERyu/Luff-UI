@@ -13,6 +13,32 @@ defineProps({ ...overlayProps, ...variants })
 <style lang="ts">
 css({
   variants: {
+    variant: {
+      color: {
+        background: (props) => `rgba(${convertToRGB(props.color)}, ${props.opacity})`,
+        backdropFilter: (props) => props.blur ? `blur(${props.blur})` : '',
+      },
+      image: {
+        backgroundImage: (props) => `url(${props.image})`,
+        filter: (props) => props.blur ? `blur(${props.blur})` : '',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        transform: 'scale(1.3)',
+        '&::after': {
+          position: 'absolute',
+          background: (props) => `rgba(${convertToRGB(props.color)}, ${props.opacity})`,
+          content: "''",
+          width: '100%',
+          height: '100%',
+          top: 0,
+          left: 0
+        }
+      },
+      options: {
+        default: 'color'
+      }
+    },
     fixed: {
       true: {
         '&': {
@@ -41,9 +67,7 @@ css({
     width: '100%',
     height: '100%',
     inset: 0,
-    background: (props) => `rgba(${convertToRGB(props.color)}, ${props.opacity})`,
     zIndex: (props) => props.zIndex,
-    backdropFilter: (props) => props.blur ? `blur(${props.blur})` : '',
   }
 })
 </style>

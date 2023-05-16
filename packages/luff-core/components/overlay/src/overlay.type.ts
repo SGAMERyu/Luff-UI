@@ -1,7 +1,13 @@
-import { ExtractPropTypes } from 'vue'
+import { ExtractPropTypes, PropType } from 'vue'
 import Overlay from './Overlay.vue'
 
+export type OverlayVariant = 'color' | 'image'
+
 export const overlayProps = {
+  variant: {
+    type: String as PropType<OverlayVariant>,
+    default: 'color'
+  },
   fixed: {
     type: Boolean,
     default: false
@@ -25,6 +31,9 @@ export const overlayProps = {
   zIndex: {
     type: [String, Number],
     default: 200
+  },
+  image: {
+    type: String
   }
 }
 
