@@ -10,7 +10,7 @@ export function useImageViewer(src: string) {
     height: 0
   })
 
-  const footer = ref<HTMLElement | null>(null)
+  const footerRef = ref<HTMLElement | null>(null)
 
   const imageStyle = computed<CSSProperties>(() => {
     return createSizingImage()
@@ -19,7 +19,7 @@ export function useImageViewer(src: string) {
   function createSizingImage() {
     const { width: imageWidth, height: imageHeight } = naturalImageSize.value
     const { width: containerWidth, height: containerHeight } = containerSize
-    const footerHeight = footer.value?.offsetHeight || 0
+    const footerHeight = footerRef.value?.offsetHeight || 0
     const viewerWidth = containerWidth
     const viewerHeight = Math.max(containerHeight - footerHeight, footerHeight)
     const aspectRatio = imageWidth / imageHeight
@@ -62,5 +62,5 @@ export function useImageViewer(src: string) {
     initImage()
   })
 
-  return { imageStyle, footer }
+  return { imageStyle, footerRef }
 }

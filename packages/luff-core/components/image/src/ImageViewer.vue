@@ -3,9 +3,9 @@
     <div v-if="true" class="lu-image-viewer">
       <LuOverlay blur="15px" variant="image" :image="src"></LuOverlay>
       <div class="lu-image-container">
-        <img :src="src" :style="{ ...imageStyle, ...imageTransformStyle }" />
+        <img ref="imgRef" :src="src" :style="{ ...imageStyle, ...imageTransformStyle }" />
       </div>
-      <div ref="footer" class="lu-image-toolbar">
+      <div ref="footerRef" class="lu-image-toolbar">
         <ul class="lu-image-toolList">
           <template v-for="tool in TOOL_BARS" :key="tool.action">
             <li class="lu-image-tool">
@@ -26,13 +26,18 @@ import ZoomIn from './icon/ZoomIn.vue'
 import ZoomOut from './icon/ZoomOut.vue'
 import TurnRight from './icon/TurnRight.vue'
 import TurnLeft from './icon/TurnLeft.vue'
+import FullScreen from './icon/FullScreen.vue'
+import Reset from './icon/Reset.vue'
 import { LuffIcon } from '~/components/icon'
+import { CSSProperties } from 'vue'
 
 const TOOL_BARS = [
   { component: TurnLeft, action: ToolActionEnum.TURN_LEFT },
   { component: TurnRight, action: ToolActionEnum.TURN_RIGHT },
   { component: ZoomIn, action: ToolActionEnum.ZOOM_IN },
-  { component: ZoomOut, action: ToolActionEnum.ZOOM_OUT }
+  { component: ZoomOut, action: ToolActionEnum.ZOOM_OUT },
+  { component: Reset, action: ToolActionEnum.RESET },
+  { component: FullScreen, action: ToolActionEnum.FULL_SCREEN }
 ]
 
 defineOptions({
@@ -41,14 +46,17 @@ defineOptions({
 const props = defineProps({ ...imageViewerProps })
 // const visible = defineModel('visible', { type: Boolean, default: false })\
 
-const { imageStyle, footer } = useImageViewer(props.src!)
+const imgRef = ref<HTMLImageElement | null>(null)
+const { imageStyle, footerRef } = useImageViewer(props.src!)
 const { imageTransformStyle, onToolClick } = useToolAction()
+const { isFullscreen, enter, exit, toggle } = useFullscreen(imgRef)
 
 function useToolAction() {
   const scale = ref(1)
   const rotate = ref(0)
-  const imageTransformStyle = computed(() => {
+  const imageTransformStyle = computed<CSSProperties>(() => {
     return {
+      transition: 'all 0.3s ease-in-out',
       transform: `scale(${scale.value}) rotate(${rotate.value}deg)`
     }
   })
@@ -65,6 +73,13 @@ function useToolAction() {
         break
       case ToolActionEnum.TURN_RIGHT:
         rotate.value += 90
+        break
+      case ToolActionEnum.RESET:
+        scale.value = 1
+        rotate.value = 0
+        break
+      case ToolActionEnum.FULL_SCREEN:
+        toggle()
         break
     }
   }

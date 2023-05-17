@@ -54,5 +54,7 @@ export enum ToolActionEnum {
   ZOOM_IN = 'zoomIn',
   ZOOM_OUT = 'zoomOut',
   TURN_LEFT = 'turnLeft',
-  TURN_RIGHT = 'turnRight'
+  TURN_RIGHT = 'turnRight',
+  FULL_SCREEN = 'fullScreen',
+  RESET = 'reset'
 }

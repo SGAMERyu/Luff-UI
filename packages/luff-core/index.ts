@@ -25,7 +25,8 @@ import {
   LuText,
   LuLink,
   LuHighlight,
-  LuImage
+  LuImage,
+  LuColorPicker
 } from '~/components'
 import { createInstaller } from './utils'
 import type { Plugin } from 'vue'

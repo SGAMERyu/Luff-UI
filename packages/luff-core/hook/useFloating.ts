@@ -16,18 +16,16 @@ interface FloatingOptions {
   offsetValue: number
 }
 
-export function useFloating(
-  referenceEl: Ref<ReferenceElement | undefined>,
-  floatingEl: Ref<HTMLElement | undefined>,
-  options: FloatingOptions
-) {
+export function useFloating(options: FloatingOptions) {
+  const referenceRef = ref<ReferenceElement | undefined>(undefined)
+  const floatingRef = ref<HTMLElement | undefined>(undefined)
   const [coordinate, setCoordinate] = createSignal({ x: 0, y: 0 })
   const { placement, shiftOptions, offsetValue } = options
 
   let cleanup: () => void = () => ({})
 
   onMounted(() => {
-    cleanup = autoUpdate(referenceEl.value!, floatingEl.value!, updatePosition)
+    cleanup = autoUpdate(referenceRef.value!, floatingRef.value!, updatePosition)
   })
 
   onUnmounted(() => {
@@ -35,7 +33,7 @@ export function useFloating(
   })
 
   function updatePosition() {
-    computePosition(referenceEl.value!, floatingEl.value!, {
+    computePosition(floatingRef.value!, floatingRef.value!, {
       placement,
       middleware: [offset(offsetValue), flip(), shift(shiftOptions)]
     })
@@ -47,9 +45,5 @@ export function useFloating(
       })
   }
 
-  watch(coordinate, () => {
-    console.log(coordinate())
-  })
-
-  return { coordinate }
+  return { coordinate, referenceRef, floatingRef }
 }

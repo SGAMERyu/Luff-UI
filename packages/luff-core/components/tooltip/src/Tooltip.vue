@@ -1,10 +1,10 @@
 <template>
-  <component :is="as" ref="referenceElRef" class="lu-tooltip" @mouseenter="setVisible()" @mouseleave="setVisible()">
+  <component :is="as" ref="referenceRef" class="lu-tooltip" @mouseenter="setVisible()" @mouseleave="setVisible()">
     <slot></slot>
   </component>
   <Transition enter-active-class="lu-tooltip-animate-enter-active" leave-active-class="lu-tooltip-animate-leave-active">
     <Teleport to="body">
-      <div v-show="visible" ref="floatingElRef" class="lu-tooltip__content lu-tooltip-animate" :style="floatingElStyle">
+      <div v-show="visible" ref="floatingRef" class="lu-tooltip__content lu-tooltip-animate" :style="floatingElStyle">
         <slot name="content">
           <template v-if="isComponent(content)">
             <component :is="content" />
@@ -20,17 +20,14 @@
 import { isComponent } from '~/utils'
 import { useFloating } from '~/hook'
 import { tooltipProps } from './tooltip.type'
-import { ReferenceElement } from '@floating-ui/dom'
 import { CSSProperties } from 'vue'
 
 defineOptions({ name: 'LuTooltip' })
 const props = defineProps({ ...tooltipProps })
 
-const referenceElRef = ref<ReferenceElement>()
-const floatingElRef = ref<HTMLElement>()
 const [visible, setVisible] = useToggle(false)
 
-const { coordinate } = useFloating(referenceElRef, floatingElRef, {
+const { coordinate, referenceRef, floatingRef } = useFloating({
   placement: props.placement,
   shiftOptions: {
     padding: props.padding

@@ -64,6 +64,7 @@ function createComponentType(name: string) {
   const upperNameProps = `${upperName}Props`
   const upperNameInstance = `${upperName}Instance`
   return `import { ExtractPropTypes, PropType } from 'vue'
+  import ${upperName} from './${upperName}.vue'
   export const ${lowerNameProps} = {}
 
   export type ${upperNameProps} = ExtractPropTypes<typeof ${lowerNameProps}>
