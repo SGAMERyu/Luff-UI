@@ -2,7 +2,8 @@
   <Story
     title="ColorPicker"
     :layout="{
-      type: 'grid'
+      type: 'grid',
+      width: '500px'
     }"
   >
     <Variant> <LuColorPicker /> </Variant>
