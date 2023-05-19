@@ -3,7 +3,8 @@
     title="ColorPicker"
     :layout="{
       type: 'grid',
-      width: '500px'
+      width: '500px',
+      height: '500px'
     }"
   >
     <Variant> <LuColorPicker /> </Variant>

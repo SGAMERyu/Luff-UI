@@ -60,7 +60,8 @@ const components: Plugin[] = [
   LuText,
   LuLink,
   LuHighlight,
-  LuImage
+  LuImage,
+  LuColorPicker
 ]
 
 const installPieceUi = createInstaller(components)

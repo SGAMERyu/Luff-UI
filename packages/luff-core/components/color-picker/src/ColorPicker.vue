@@ -1,6 +1,6 @@
 <template>
   <div class="lu-color-picker">
-    <div class="lu-color-picker-palette">
+    <div class="lu-color-picker-saturation-root">
       <div class="lu-color-picker-saturation"></div>
     </div>
     <div class="lu-color-picker-body">
@@ -27,12 +27,11 @@ defineOptions({ name: 'LuColorPicker' })
 
 <style lang="ts">
 css({
-  variants: {},
   '.lu-color-picker': {
     display: 'flex',
     flexDirection: 'column',
     width: '200px',
-    '& .lu-color-picker-palette': {
+    '& .lu-color-picker-saturation-root': {
       position: 'relative',
     },
     '& .lu-color-picker-saturation': {
