@@ -1,6 +1,23 @@
 import { Fn } from '@vueuse/core'
+import { defu } from 'defu'
 
-export function useMove(dir: 'ltr' | 'rtl' = 'ltr') {
+interface Position {
+  x: number
+  y: number
+}
+
+export interface UseMoveOptions {
+  dir?: 'ltr' | 'rtl'
+  onMove?: (position: Position) => void
+  onEnd?: (position: Position) => void
+}
+
+const defaultMoveOptions: UseMoveOptions = {
+  dir: 'ltr'
+}
+
+export function useMove(options: UseMoveOptions = defaultMoveOptions) {
+  const { dir, onMove, onEnd } = defu(options, defaultMoveOptions)
   const wrapper = ref<HTMLElement | null>()
   const [isSliding, toggleIsSliding] = useToggle(false)
   const eventsListeners: Fn[] = []
@@ -25,9 +42,10 @@ export function useMove(dir: 'ltr' | 'rtl' = 'ltr') {
       const rect = wrapper.value!.getBoundingClientRect()
       const { width, height, left, top } = rect
       if (width && height) {
-        const x = clamp((clientX - left) / width, 0, 1) * 100
-        const y = clamp((clientY - top) / height, 0, 1) * 100
+        const x = clamp((clientX - left) / width, 0, 1)
+        const y = clamp((clientY - top) / height, 0, 1)
         position.value = { x: dir === 'ltr' ? x : 1 - x, y }
+        if (onMove && typeof onMove === 'function') onMove(position.value)
       }
     })
   }
@@ -44,6 +62,7 @@ export function useMove(dir: 'ltr' | 'rtl' = 'ltr') {
     if (!isSliding.value) return
     toggleIsSliding(false)
     unBindEvents()
+    if (onEnd && typeof onEnd === 'function') onEnd(position.value)
   }
 
   function onMouseDown(e: MouseEvent) {

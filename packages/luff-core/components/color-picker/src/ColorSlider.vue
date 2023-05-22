@@ -11,11 +11,19 @@ import { colorSliderProps } from './colorPicker.type'
 import { useMove } from '~/hook'
 
 defineOptions({ name: 'LuColorSlider' })
-defineProps({ ...colorSliderProps })
+const props = defineProps({ ...colorSliderProps })
+const emit = defineEmits(['update:modelValue'])
 
-const { wrapper, position } = useMove()
+const _value = useVModel(props, 'modelValue', emit)
+
+const { wrapper, position } = useMove({
+  onMove({ x }) {
+    _value.value = x * props.maxValue
+  }
+})
 const handlerStyle = computed<CSSProperties>(() => ({
-  left: `${position.value.x}%`
+  background: props.handleColor,
+  left: `${position.value.x * 100}%`
 }))
 </script>
 
@@ -24,8 +32,10 @@ css({
   '.lu-color-picker-palette': {
     position: 'relative',
     height: '8px',
-    borderRadius: '15px',
     cursor: 'pointer',
+    boxSizing: 'border-box',
+    marginRight: '6px',
+    marginLeft: '6px',
     '& .lu-color-picker-handler': {
       position: 'absolute',
       top: '-2px',
@@ -34,12 +44,18 @@ css({
       border: '2px solid rgb(255, 255, 255)',
       borderRadius: '50%',
       cursor: 'pointer',
-      background: 'rgb(50, 119, 255)',
+      background: 'transparent',
+      transform: 'translateX(-50%)',
+      zIndex:1
     },
     '& .lu-color-picker-gradient': {
-      width: '100%',
-      height: '100%',
-      borderRadius: '15px'
+      position: 'absolute',
+      borderRadius: '15px',
+      top: 0,
+      bottom: 0,
+      boxSizing: 'border-box',
+      left: '-6px',
+      right: '-6px'
     }
   }
 })

@@ -22,6 +22,18 @@ export const colorSliderProps = {
   gradientStyle: {
     type: Object as PropType<CSSProperties>,
     default: () => ({})
+  },
+  maxValue: {
+    type: Number,
+    default: 100
+  },
+  handleColor: {
+    type: String,
+    default: 'transparent'
+  },
+  modelValue: {
+    type: Number,
+    required: true
   }
 }
 

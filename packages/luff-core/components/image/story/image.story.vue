@@ -12,7 +12,7 @@
         <LuImage :src="src" caption="this is caption"  width="200px" height="80px" />
       </Variant>
       <Variant title="caption">
-        <LuImage :src="null" caption="this is caption" width="200px" height="80px"/>
+        <LuImage :src="undefined" caption="this is caption" width="200px" height="80px"/>
       </Variant>
       <Variant title="fit">
         <LuImage :src="src" width="200px" height="80px"/>

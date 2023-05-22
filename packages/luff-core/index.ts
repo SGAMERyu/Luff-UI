@@ -26,7 +26,9 @@ import {
   LuLink,
   LuHighlight,
   LuImage,
-  LuColorPicker
+  LuColorPicker,
+  LuAlphaSlider,
+  LuHueSlider
 } from '~/components'
 import { createInstaller } from './utils'
 import type { Plugin } from 'vue'
@@ -61,7 +63,9 @@ const components: Plugin[] = [
   LuLink,
   LuHighlight,
   LuImage,
-  LuColorPicker
+  LuColorPicker,
+  LuAlphaSlider,
+  LuHueSlider
 ]
 
 const installPieceUi = createInstaller(components)

@@ -9,8 +9,8 @@
       </div>
       <div class="lu-color-picker-preview"></div>
       <div class="lu-color-picker-sliders">
-        <HueSlider />
-        <AlphaSlider />
+        <HueSlider v-model="parseColor.h" />
+        <AlphaSlider v-model="parseColor.s" />
       </div>
     </div>
   </div>
@@ -23,6 +23,11 @@ import SkipIcon from './SkipIcon.vue'
 import LuIcon from '~/components/icon/src/Icon.vue'
 
 defineOptions({ name: 'LuColorPicker' })
+
+const parseColor = ref({
+  h: 0,
+  s: 0
+})
 </script>
 
 <style lang="ts">
@@ -31,6 +36,7 @@ css({
     display: 'flex',
     flexDirection: 'column',
     width: '200px',
+    padding: '8px',
     '& .lu-color-picker-saturation-root': {
       position: 'relative',
     },
