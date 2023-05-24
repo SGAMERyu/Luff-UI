@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ctrl/tinycolor": "^3.6.0",
     "@floating-ui/dom": "^1.2.5",
     "@luff-ui/icon": "workspace:1.0.0",
     "defu": "^6.1.2",

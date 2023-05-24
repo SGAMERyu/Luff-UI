@@ -1,33 +1,58 @@
 <template>
   <div class="lu-color-picker">
-    <div class="lu-color-picker-saturation-root">
-      <div class="lu-color-picker-saturation"></div>
-    </div>
+    <Saturation v-model:saturation="parseColor.s" v-model:value="parseColor.v" :saturation-style="saturationStyle" />
     <div class="lu-color-picker-body">
       <div class="lu-color-picker-skip">
         <LuIcon> <SkipIcon /></LuIcon>
       </div>
-      <div class="lu-color-picker-preview"></div>
+      <div class="lu-color-picker-preview" :style="previewStyle"></div>
       <div class="lu-color-picker-sliders">
         <HueSlider v-model="parseColor.h" />
-        <AlphaSlider v-model="parseColor.s" />
+        <AlphaSlider v-model="parseColor.a" />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { CSSProperties } from 'vue'
 import HueSlider from './HueSlider.vue'
 import AlphaSlider from './AlphaSlider.vue'
+import Saturation from './Saturation.vue'
 import SkipIcon from './SkipIcon.vue'
 import LuIcon from '~/components/icon/src/Icon.vue'
+import { colorPickerProps } from './colorPicker.type'
+import { parseColorValue, convertHsvaFromFormat } from './colorPicker.helper'
 
 defineOptions({ name: 'LuColorPicker' })
 
-const parseColor = ref({
-  h: 0,
-  s: 0
+const props = defineProps({ ...colorPickerProps })
+const emits = defineEmits(['update:modelValue'])
+
+const _value = useVModel(props, 'modelValue', emits)
+
+const parseColor = ref(parseColorValue(props.modelValue))
+
+const saturationStyle = computed<CSSProperties>(() => {
+  return {
+    backgroundColor: `hsl(${parseColor.value.h}, 100%, 50%)`
+  }
 })
+
+const previewStyle = computed<CSSProperties>(() => {
+  return {
+    backgroundColor: _value.value
+  }
+})
+
+watch(
+  parseColor,
+  () => {
+    const formatColor = convertHsvaFromFormat(parseColor.value, props.format)
+    _value.value = formatColor
+  },
+  { deep: true }
+)
 </script>
 
 <style lang="ts">
@@ -37,14 +62,6 @@ css({
     flexDirection: 'column',
     width: '200px',
     padding: '8px',
-    '& .lu-color-picker-saturation-root': {
-      position: 'relative',
-    },
-    '& .lu-color-picker-saturation': {
-      height: '124px',
-      backgroundColor: 'rgb(50, 119, 255)',
-      backgroundImage: 'linear-gradient(0deg, rgb(0, 0, 0), transparent), linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0))'
-    },
     '& .lu-color-picker-skip': {
       fontSize: '24px',
       cursor: 'pointer'
@@ -58,7 +75,6 @@ css({
     '& .lu-color-picker-preview': {
       width: '24px',
       height: '24px',
-      background: 'red',
       borderRadius: '50%'
     },
     '& .lu-color-picker-sliders': {

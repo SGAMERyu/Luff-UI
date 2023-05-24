@@ -1,7 +1,7 @@
 import { Fn } from '@vueuse/core'
 import { defu } from 'defu'
 
-interface Position {
+export interface Position {
   x: number
   y: number
 }
@@ -18,13 +18,13 @@ const defaultMoveOptions: UseMoveOptions = {
 
 export function useMove(options: UseMoveOptions = defaultMoveOptions) {
   const { dir, onMove, onEnd } = defu(options, defaultMoveOptions)
-  const wrapper = ref<HTMLElement | null>()
+  const wrapperRef = ref<HTMLElement | null>()
   const [isSliding, toggleIsSliding] = useToggle(false)
   const eventsListeners: Fn[] = []
   const framer = ref<number>(0)
   const position = ref({ x: 0, y: 0 })
 
-  useEventListener(wrapper, 'mousedown', onMouseDown)
+  useEventListener(wrapperRef, 'mousedown', onMouseDown)
 
   function bindEvents() {
     const cleanupMove = useEventListener(document, 'mousemove', onMouseMove)
@@ -39,7 +39,7 @@ export function useMove(options: UseMoveOptions = defaultMoveOptions) {
   function calcPosition({ clientX, clientY }: MouseEvent) {
     cancelAnimationFrame(framer.value)
     framer.value = requestAnimationFrame(() => {
-      const rect = wrapper.value!.getBoundingClientRect()
+      const rect = wrapperRef.value!.getBoundingClientRect()
       const { width, height, left, top } = rect
       if (width && height) {
         const x = clamp((clientX - left) / width, 0, 1)
@@ -74,7 +74,7 @@ export function useMove(options: UseMoveOptions = defaultMoveOptions) {
   }
 
   return {
-    wrapper,
+    wrapperRef,
     position
   }
 }

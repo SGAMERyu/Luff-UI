@@ -24,7 +24,7 @@ const emit = defineEmits(['update:modelValue'])
 const _value = useVModel(props, 'modelValue', emit)
 
 const handleColor = computed(() => {
-  return `hsl(${_value.value}, '100%', '50%')`
+  return `hsl(${_value.value}, 100%, 50%)`
 })
 
 const gradientStyle = computed<CSSProperties>(() => ({

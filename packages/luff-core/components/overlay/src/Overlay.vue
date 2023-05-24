@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { overlayProps } from './overlay.type'
-import { convertToRGB } from '~/utils'
+import { convertColor } from '~/utils'
 
 defineOptions({ name: 'LuOverlay' })
 defineProps({ ...overlayProps, ...variants })
@@ -15,7 +15,7 @@ css({
   variants: {
     variant: {
       color: {
-        background: (props) => `rgba(${convertToRGB(props.color)}, ${props.opacity})`,
+        background: (props) => `rgba(${convertColor(props.color).toRgbArray().join('')}, ${props.opacity})`,
         backdropFilter: (props) => props.blur ? `blur(${props.blur})` : '',
       },
       image: {
@@ -27,7 +27,7 @@ css({
         transform: 'scale(1.3)',
         '&::after': {
           position: 'absolute',
-          background: (props) => `rgba(${convertToRGB(props.color)}, ${props.opacity})`,
+          background: (props) => `rgba(${convertColor(props.color).toRgbArray().join('')}, ${props.opacity})`,
           content: "''",
           width: '100%',
           height: '100%',

@@ -1,5 +1,5 @@
 <template>
-  <div ref="wrapper" class="lu-color-picker-palette" :style="rootStyle">
+  <div ref="wrapperRef" class="lu-color-picker-palette" :style="rootStyle">
     <div ref="handlerRef" class="lu-color-picker-handler" :style="handlerStyle"></div>
     <div class="lu-color-picker-gradient" :style="gradientStyle"></div>
   </div>
@@ -12,13 +12,18 @@ import { useMove } from '~/hook'
 
 defineOptions({ name: 'LuColorSlider' })
 const props = defineProps({ ...colorSliderProps })
-const emit = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:modelValue'])
 
-const _value = useVModel(props, 'modelValue', emit)
+const _value = useVModel(props, 'modelValue', emits)
 
-const { wrapper, position } = useMove({
+const { wrapperRef, position } = useMove({
   onMove({ x }) {
-    _value.value = x * props.maxValue
+    const { maxValue, round } = props
+    _value.value = round ? Math.round(x * maxValue) : x * maxValue
+  },
+  onEnd({ x }) {
+    const { maxValue, round } = props
+    _value.value = round ? Math.round(x * maxValue) : x * maxValue
   }
 })
 const handlerStyle = computed<CSSProperties>(() => ({

@@ -11,6 +11,10 @@ export const colorPickerProps = {
   swatches: {
     type: Array as PropType<string[]>,
     default: () => []
+  },
+  modelValue: {
+    type: String,
+    default: '#ffffff'
   }
 }
 
@@ -34,6 +38,23 @@ export const colorSliderProps = {
   modelValue: {
     type: Number,
     required: true
+  },
+  round: {
+    type: Boolean,
+    default: true
+  }
+}
+
+export const colorSaturationProps = {
+  saturationStyle: {
+    type: Object as PropType<CSSProperties>,
+    default: () => ({})
+  },
+  saturation: {
+    type: Number
+  },
+  value: {
+    type: Number
   }
 }
 

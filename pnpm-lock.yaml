@@ -121,7 +121,7 @@ importers:
         version: 0.15.0(@vueuse/core@9.13.0)(rollup@3.21.7)
       vite:
         specifier: ^4.1.4
-        version: 4.2.1(@types/node@18.14.2)
+        version: 4.2.1(@types/node@18.14.2)(sass@1.58.3)
       vite-plugin-dts:
         specifier: ^2.0.2
         version: 2.0.2(@types/node@18.14.2)(rollup@3.21.7)(vite@4.2.1)
@@ -140,6 +140,9 @@ importers:
 
   packages/luff-core:
     dependencies:
+      '@ctrl/tinycolor':
+        specifier: ^3.6.0
+        version: 3.6.0
       '@floating-ui/dom':
         specifier: ^1.2.5
         version: 1.2.5
@@ -726,6 +729,11 @@ packages:
     engines: {node: ^14 || ^16 || >=18}
     dev: false
 
+  /@ctrl/tinycolor@3.6.0:
+    resolution: {integrity: sha512-/Z3l6pXthq0JvMYdUFyX9j0MaCltlIn6mfh9jLyQwg5aPKxkyNa0PTHtU1AlFXLNk55ZuAeJRcpvq+tmLfKmaQ==}
+    engines: {node: '>=10'}
+    dev: false
+
   /@esbuild-kit/cjs-loader@2.4.2:
     resolution: {integrity: sha512-BDXFbYOJzT/NBEtp71cvsrGPwGAMGRB/349rwKuoxNSiKjPraNNnlK6MIIabViCjqZugu6j+xeMDlEkWdHHJSg==}
     dependencies:
@@ -1226,7 +1234,7 @@ packages:
       chokidar: 3.5.3
       pathe: 0.2.0
       picocolors: 1.0.0
-      vite: 4.2.1(@types/node@18.14.2)
+      vite: 4.2.1(@types/node@18.14.2)(sass@1.58.3)
     dev: true
 
   /@histoire/vendors@0.15.8:
@@ -2147,7 +2155,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.2.1(@types/node@18.14.2)
+      vite: 4.2.1(@types/node@18.14.2)(sass@1.58.3)
       vue: 3.3.2
     dev: true
 
@@ -4368,7 +4376,7 @@ packages:
       sade: 1.8.1
       shiki-es: 0.2.0
       sirv: 2.0.3
-      vite: 4.2.1(@types/node@18.14.2)
+      vite: 4.2.1(@types/node@18.14.2)(sass@1.58.3)
       vite-node: 0.28.4(@types/node@18.14.2)
     transitivePeerDependencies:
       - '@types/node'
@@ -7827,7 +7835,7 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.29.0
       ts-morph: 17.0.1
-      vite: 4.2.1(@types/node@18.14.2)
+      vite: 4.2.1(@types/node@18.14.2)(sass@1.58.3)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -7847,44 +7855,10 @@ packages:
       kolorist: 1.8.0
       sirv: 2.0.3
       ufo: 1.1.2
-      vite: 4.2.1(@types/node@18.14.2)
+      vite: 4.2.1(@types/node@18.14.2)(sass@1.58.3)
     transitivePeerDependencies:
       - rollup
       - supports-color
-    dev: true
-
-  /vite@4.2.1(@types/node@18.14.2):
-    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': '>= 14'
-      less: '*'
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-    dependencies:
-      '@types/node': 18.14.2
-      esbuild: 0.17.19
-      postcss: 8.4.23
-      resolve: 1.22.2
-      rollup: 3.21.7
-    optionalDependencies:
-      fsevents: 2.3.2
     dev: true
 
   /vite@4.2.1(@types/node@18.14.2)(sass@1.58.3):

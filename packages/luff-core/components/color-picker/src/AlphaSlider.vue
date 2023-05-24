@@ -1,5 +1,5 @@
 <template>
-  <ColorSlider v-model="_value" :root-style="rootStyle" :gradient-style="gradientStyle" :max-value="1"></ColorSlider>
+  <ColorSlider v-model="_value" :root-style="rootStyle" :gradient-style="gradientStyle" :max-value="1" :round="false"></ColorSlider>
 </template>
 
 <script lang="ts" setup>
