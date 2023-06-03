@@ -1,6 +1,6 @@
 import { Fn } from '@vueuse/core'
 import { ColorPickerFormat } from './colorPicker.type'
-import { TinyColor } from '@ctrl/tinycolor'
+import { ColorInput, TinyColor } from '@ctrl/tinycolor'
 
 export interface ColorValue {
   h: number
@@ -36,9 +36,8 @@ export function parseColorValue(color: string): ColorValue {
   return _color.toHsv()
 }
 
-export function convertHsvaFromFormat(color: ColorValue, format: ColorPickerFormat) {
-  const { h, s, v, a } = color
-  const _color = new TinyColor({ h, s, v, a })
+export function convertColorFromFormat(color: ColorInput, format: ColorPickerFormat) {
+  const _color = new TinyColor(color)
   const formatFn = COLOR_FORMATS[format]
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

@@ -20,7 +20,6 @@ const _saturation = useVModel(props, 'saturation', emits)
 
 const { wrapperRef, position } = useMove({
   onMove({ x, y }) {
-    console.log(x, y)
     _value.value = Math.round((1 - y) * 100)
     _saturation.value = Math.round(x * 100)
   },
